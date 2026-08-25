@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
+  GeoJSONSource,
   MapLibreMap,
   NavigationControl,
   Popup,
@@ -15,6 +16,8 @@ import {
   electricityPriceFillColorExpression,
   electricityPriceFillOpacityExpression,
   facilityCircleColorExpression,
+  clusterCircleColorExpression,
+  clusterCircleRadiusExpression,
   waterStressFillColorExpression,
 } from "@/lib/map/colors";
 import { buildFacilityPopupHtml, type FacilityProperties } from "@/lib/map/facilityPopup";
@@ -136,11 +139,51 @@ export default function MapView() {
 
         // Facilities go on top of every overlay, always visible: the point
         // layer is the map's one constant, overlays are the toggleable context.
-        map.addSource("facilities", { type: "geojson", data: facilities });
+        // Thousands of facilities nationally (vs. the original 5-pin AZ demo)
+        // makes clustering a necessity, not polish -- an unclustered national
+        // view is an unreadable smear at low zoom. MapLibre's built-in
+        // supercluster-based clustering handles this without a custom layer:
+        // clustered points aggregate into "clusters" circles sized/colored by
+        // count; individual facilities render (and stay clickable for the
+        // popup) once zoomed in past clusterMaxZoom or once a cluster is thin
+        // enough to break apart.
+        map.addSource("facilities", {
+          type: "geojson",
+          data: facilities,
+          cluster: true,
+          clusterMaxZoom: 9,
+          clusterRadius: 50,
+        });
+
+        map.addLayer({
+          id: "facilities-clusters",
+          type: "circle",
+          source: "facilities",
+          filter: ["has", "point_count"],
+          paint: {
+            "circle-color": clusterCircleColorExpression,
+            "circle-radius": clusterCircleRadiusExpression,
+            "circle-stroke-width": 1.5,
+            "circle-stroke-color": "#ffffff",
+          },
+        });
+        map.addLayer({
+          id: "facilities-cluster-count",
+          type: "symbol",
+          source: "facilities",
+          filter: ["has", "point_count"],
+          layout: {
+            "text-field": ["get", "point_count_abbreviated"],
+            "text-size": 12,
+            "text-font": ["Noto Sans Regular"],
+          },
+          paint: { "text-color": "#ffffff" },
+        });
         map.addLayer({
           id: "facilities-circle",
           type: "circle",
           source: "facilities",
+          filter: ["!", ["has", "point_count"]],
           paint: {
             "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 3, 8, 7, 12, 11],
             "circle-color": facilityCircleColorExpression,
@@ -149,12 +192,30 @@ export default function MapView() {
           },
         });
 
+        map.on("mouseenter", "facilities-clusters", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
+        map.on("mouseleave", "facilities-clusters", () => {
+          map.getCanvas().style.cursor = "";
+        });
         map.on("mouseenter", "facilities-circle", () => {
           map.getCanvas().style.cursor = "pointer";
         });
         map.on("mouseleave", "facilities-circle", () => {
           map.getCanvas().style.cursor = "";
         });
+
+        map.on("click", "facilities-clusters", async (e: MapLayerMouseEvent) => {
+          const feature = e.features?.[0];
+          const clusterId = feature?.properties?.cluster_id;
+          if (clusterId == null) return;
+          const source = map.getSource("facilities");
+          if (!(source instanceof GeoJSONSource)) return;
+          const zoom = await source.getClusterExpansionZoom(clusterId);
+          const coords = (feature!.geometry as GeoJSON.Point).coordinates as [number, number];
+          map.easeTo({ center: coords, zoom });
+        });
+
         map.on("click", "facilities-circle", (e: MapLayerMouseEvent) => {
           const feature = e.features?.[0];
           if (!feature || feature.geometry.type !== "Point") return;

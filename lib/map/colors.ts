@@ -165,3 +165,32 @@ export const electricityPriceFillOpacityExpression: ExpressionSpecification = [
 ];
 
 export { MUTED_GRAY, SEQ_150, SEQ_300, SEQ_450, SEQ_600, SEQ_700, DIVERGING_BLUE, DIVERGING_RED, DIVERGING_MIDPOINT };
+
+// Facility cluster bubbles (national-scale facility count made clustering a
+// necessity -- see MapView.tsx). Reuses the same documented sequential blue
+// ramp as water stress/eGRID rather than inventing a new color for "how many
+// pins are under this bubble": it's a magnitude encoding like those, just of
+// count instead of an environmental value.
+export const clusterCircleColorExpression: ExpressionSpecification = [
+  "step",
+  ["get", "point_count"],
+  SEQ_300,
+  10,
+  SEQ_450,
+  100,
+  SEQ_600,
+  750,
+  SEQ_700,
+];
+
+export const clusterCircleRadiusExpression: ExpressionSpecification = [
+  "step",
+  ["get", "point_count"],
+  14,
+  10,
+  18,
+  100,
+  24,
+  750,
+  30,
+];
