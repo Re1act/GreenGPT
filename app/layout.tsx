@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SITED — the data center buildout map",
+  title: {
+    default: "GreenGPT — a civic tool for the data center buildout",
+    template: "%s — GreenGPT",
+  },
   description:
-    "A civic map of US data center facilities, with water stress, drought, grid carbon, and electricity price context.",
+    "Model why data center siting decisions have the consequences they do, see what's being built where, and find out what you can do about it.",
 };
 
 export default function RootLayout({
@@ -28,7 +32,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      {/* Fixed-height shell: the map page fills the space under the nav, while
+          longer pages (simulator, brief) scroll inside the content area. */}
+      <body className="flex h-full flex-col">
+        <SiteNav />
+        <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
+      </body>
     </html>
   );
 }

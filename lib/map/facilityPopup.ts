@@ -1,4 +1,5 @@
 import { FACILITY_STATUS_LABELS } from "@/lib/map/colors";
+import { facilityScenarioHref } from "@/lib/simulator/params";
 
 // Facility properties come straight from facilities_geojson() (see
 // supabase/migrations/20260825181942_map_geojson_rpcs.sql) -- curated data, but
@@ -42,11 +43,21 @@ export type FacilityProperties = {
 // facility, never a claim about which facility served any user's request. That
 // framing lives in the page copy, not per-popup, but nothing here should ever
 // imply otherwise.
-export function buildFacilityPopupHtml(p: FacilityProperties): string {
+export function buildFacilityPopupHtml(p: FacilityProperties, coords: [number, number]): string {
   const statusLabel = FACILITY_STATUS_LABELS[p.status] ?? p.status;
   const coolingLabel = p.cooling_type
     ? p.cooling_type.replace("_", "-").replace(/\b\w/g, (c) => c.toUpperCase())
     : "Undisclosed";
+  // Hands the simulator only what this record discloses; it fills the rest
+  // with defaults and says so (see lib/simulator/params.ts).
+  const simulateHref = facilityScenarioHref({
+    name: p.name,
+    lon: coords[0],
+    lat: coords[1],
+    announcedLoadMW: p.announced_load_mw,
+    coolingType: p.cooling_type,
+    buildYear: p.build_year,
+  });
 
   return `
     <div class="sited-popup">
@@ -59,6 +70,7 @@ export function buildFacilityPopupHtml(p: FacilityProperties): string {
       ${row("State", p.state)}
       ${p.applicable_local_policy ? `<p class="sited-popup-note">${escapeHtml(p.applicable_local_policy)}</p>` : ""}
       ${p.opposition_note ? `<p class="sited-popup-note sited-popup-note--opposition">${escapeHtml(p.opposition_note)}</p>` : ""}
+      <a class="sited-popup-simulate" href="${escapeHtml(simulateHref)}">Model this site in the simulator →</a>
       <div class="sited-popup-source">
         Source: ${
           p.source_url

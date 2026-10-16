@@ -6,10 +6,10 @@ import {
   MapLibreMap,
   NavigationControl,
   Popup,
-  setWorkerUrl,
   type MapLayerMouseEvent,
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { BASEMAP_STYLE } from "@/lib/map/maplibreSetup";
 import {
   droughtFillColorExpression,
   egridFillColorExpression,
@@ -23,12 +23,6 @@ import {
 import { buildFacilityPopupHtml, type FacilityProperties } from "@/lib/map/facilityPopup";
 import OverlayControl, { type OverlayKey } from "@/components/map/OverlayControl";
 
-// Free, no-API-key vector basemap -- see https://openfreemap.org. This app
-// never needs a styled/branded basemap, just recognizable coastlines/borders
-// under the data layers, so a hosted free style is the right call over
-// standing up tile infrastructure.
-const BASEMAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
-
 const OVERLAY_LAYER_IDS: Record<Exclude<OverlayKey, "none">, string> = {
   "water-stress": "water-stress-fill",
   drought: "drought-fill",
@@ -41,16 +35,6 @@ async function fetchGeoJson(path: string): Promise<GeoJSON.FeatureCollection> {
   if (!res.ok) throw new Error(`${path} failed: ${res.status}`);
   return res.json();
 }
-
-// Under Next.js 16 + Turbopack (dev, as of this writing), maplibre-gl's
-// internal Worker(new URL(..., import.meta.url)) construction resolves to the
-// wrong URL (observed resolving to the page's own URL), so its tile-parsing
-// worker never loads -- vector tile layers then hang forever (raster layers
-// still render fine, since those don't need the worker), and 'load' never
-// fires. Pointing at a statically-served copy of the worker chunk (kept in
-// sync by scripts/copy-maplibre-worker.mjs, see that file for the full
-// writeup) works around it. Must run before the first Map is constructed.
-setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
 
 export default function MapView() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -225,7 +209,7 @@ export default function MapView() {
           popupRef.current?.remove();
           popupRef.current = new Popup({ closeButton: true, maxWidth: "300px" })
             .setLngLat(coords)
-            .setHTML(buildFacilityPopupHtml(props))
+            .setHTML(buildFacilityPopupHtml(props, coords))
             .addTo(map);
         });
 

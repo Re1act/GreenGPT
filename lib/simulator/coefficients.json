@@ -1,0 +1,367 @@
+{
+  "version": "2026-10-16-draft.2",
+  "asOf": "2026-10-16",
+  "reviewStatus": "DRAFT -- every value below was drafted by Claude from the cited sources and is marked verified:false until the project owner checks it against the source.",
+  "sources": {
+    "lbnl2024": {
+      "name": "LBNL, 2024 United States Data Center Energy Usage Report (Shehabi et al.)",
+      "url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf",
+      "date": "2024-12"
+    },
+    "macknick2012": {
+      "name": "Macknick et al., Operational water consumption and withdrawal factors for electricity generating technologies, Environ. Res. Lett. 7 045802",
+      "url": "https://doi.org/10.1088/1748-9326/7/4/045802",
+      "date": "2012-12"
+    },
+    "egrid2023": {
+      "name": "EPA eGRID2023 (rev 2)",
+      "url": "https://www.epa.gov/egrid",
+      "date": "2025-06"
+    },
+    "aeo2026": {
+      "name": "EIA, Annual Energy Outlook 2026, Counterfactual Baseline case (formerly the Reference case), Tables 8 and 18",
+      "url": "https://www.eia.gov/outlooks/aeo/tables_ref.php",
+      "date": "2026-04"
+    },
+    "eiaHeatRate": {
+      "name": "EIA Electric Power Annual Table 8.2 (tested heat rates) and Today in Energy (2022, operating heat rates)",
+      "url": "https://www.eia.gov/electricity/annual/html/epa_08_02.html",
+      "date": "2025"
+    },
+    "eiaCo2Coefficients": {
+      "name": "EIA, Carbon Dioxide Emissions Coefficients",
+      "url": "https://www.eia.gov/environment/emissions/co2_vol_mass.php",
+      "date": "2024-09"
+    },
+    "eiaSales": {
+      "name": "EIA Electric Power Annual Table 2.2, Sales and Direct Use of Electricity to Ultimate Customers by Sector",
+      "url": "https://www.eia.gov/electricity/annual/html/epa_02_02.html",
+      "date": "2025"
+    },
+    "pjm2526": {
+      "name": "PJM 2025/2026 Base Residual Auction ($269.92/MW-day RTO clearing price, as cited in the project brief)",
+      "url": "https://www.pjm.com/markets-and-operations/rpm",
+      "date": "2024-07"
+    },
+    "pjm2728": {
+      "name": "PJM 2027/2028 Base Residual Auction Report ($333.44/MW-day, cleared at the price cap)",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2027-2028/2027-2028-bra-report.pdf",
+      "date": "2025-12-17"
+    },
+    "epaWaterSense": {
+      "name": "EPA WaterSense, How We Use Water (average American family uses more than 300 gallons per day at home)",
+      "url": "https://www.epa.gov/watersense/how-we-use-water",
+      "date": "accessed 2026-10-16"
+    },
+    "eiaHomeUse": {
+      "name": "EIA FAQ, How much electricity does an American home use? (2022 average: 10,791 kWh/year)",
+      "url": "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3",
+      "date": "accessed 2026-10-16"
+    },
+    "epaVehicle": {
+      "name": "EPA, Greenhouse Gas Emissions from a Typical Passenger Vehicle (about 4.6 metric tons CO2/year)",
+      "url": "https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle",
+      "date": "accessed 2026-10-16"
+    },
+    "wriAqueduct": {
+      "name": "WRI Aqueduct, Water Risk Indicators (baseline water stress = annual withdrawals as a share of available supply; bands <10%, 10-20%, 20-40%, 40-80%, >80%)",
+      "url": "https://www.wri.org/aqueduct/help-center/water-risk-indicators",
+      "date": "accessed 2026-10-16"
+    }
+  },
+  "utilization": {
+    "low": 0.45,
+    "high": 0.68,
+    "unit": "average IT draw as a fraction of IT capacity",
+    "sourceId": "lbnl2024",
+    "locator": "p. 49, Server Electricity Use: AI servers average 60-80% of rated power, operating 75-85% of the year",
+    "derivation": "low = 0.60 x 0.75, high = 0.80 x 0.85. Ignores idle draw during non-operating hours, so the low end is conservative.",
+    "verified": false
+  },
+  "cooling": {
+    "evaporative": {
+      "label": "Evaporative (cooling towers)",
+      "description": "Water-cooled chillers with a waterside economizer. Heat leaves through cooling towers by evaporating water.",
+      "pue": {
+        "low": 1.02,
+        "high": 1.25
+      },
+      "wueSiteLPerKWh": {
+        "low": 1.6,
+        "high": 2.75
+      },
+      "sourceId": "lbnl2024",
+      "locator": "Figure 4.4 (p. 46), large-scale rows 'Waterside economizer (water-cooled chiller)' and 'IT Liquid cooling: waterside economizer (water-cooled chiller)'; range spans both rows' whiskers",
+      "derivation": "Values read off a box-plot figure by eye (about +/-0.02 PUE, +/-0.05 WUE). The low end is a best-practice facility in a favorable climate; the high end is poor efficiency in a hot, humid climate.",
+      "verified": false
+    },
+    "closed_loop": {
+      "label": "Closed-loop (liquid to dry coolers)",
+      "description": "Liquid-cooled IT rejecting heat through dry coolers, with an air-cooled chiller as backup. No evaporative water in normal operation.",
+      "pue": {
+        "low": 1.03,
+        "high": 1.15
+      },
+      "wueSiteLPerKWh": {
+        "low": 0,
+        "high": 0.02
+      },
+      "sourceId": "lbnl2024",
+      "locator": "Figure 4.4 (p. 46), large-scale row 'IT Liquid cooling: dry cooler (air-cooled chiller)'",
+      "derivation": "Values read off a box-plot figure by eye. NOTE FOR REVIEW: in LBNL's simulation this configuration's PUE is NOT higher than evaporative. The energy penalty the brief describes shows up mainly for air-cooled IT on mechanical chillers (see 'air').",
+      "verified": false
+    },
+    "air": {
+      "label": "Air-cooled (no evaporative water)",
+      "description": "Air-cooled IT with outside-air economizer and air-cooled chillers. No cooling tower and no adiabatic assist.",
+      "pue": {
+        "low": 1.2,
+        "high": 1.95
+      },
+      "wueSiteLPerKWh": {
+        "low": 0,
+        "high": 0.05
+      },
+      "sourceId": "lbnl2024",
+      "locator": "Figure 4.4 (p. 46), MIDSIZE row 'Airside economizer (air-cooled chiller)' -- LBNL does not simulate a purely waterless air-cooled configuration for large-scale facilities",
+      "derivation": "Values read off a box-plot figure by eye. Midsize facilities have lower UPS/airflow efficiency (Table 4.3), so a large facility likely sits toward the low end.",
+      "verified": false
+    },
+    "immersion": {
+      "label": "Immersion",
+      "description": "Servers submerged in dielectric fluid, rejecting heat through dry coolers. Higher up-front cost.",
+      "pue": {
+        "low": 1.03,
+        "high": 1.15
+      },
+      "wueSiteLPerKWh": {
+        "low": 0,
+        "high": 0.02
+      },
+      "sourceId": "lbnl2024",
+      "locator": "Table 4.2 (p. 42) groups immersion with direct-to-chip under 'IT liquid cooling'; values reuse Figure 4.4's 'IT Liquid cooling: dry cooler (air-cooled chiller)' row",
+      "derivation": "LBNL does not model immersion separately, and no peer-reviewed measured annual PUE for immersion was found while drafting. Same numbers as closed-loop until a better source is added. The up-front cost difference is not modeled.",
+      "verified": false
+    }
+  },
+  "futureBuildUncertainty": {
+    "fromYear": 2024,
+    "spread": 0.1,
+    "appliesTo": "PUE overhead (PUE - 1) and site WUE",
+    "sourceId": "lbnl2024",
+    "locator": "p. 44: 'For future years, 2024-2028, the PUE and WUE values for the data center space types were varied by a range of +/- 10%'",
+    "derivation": "For build years from 2024 on, the low end shrinks by 10% and the high end grows by 10%. LBNL's projected fall in fleet-average PUE comes from fleet mix shifting to hyperscale, not from per-facility improvement, so no per-facility efficiency trend is applied.",
+    "verified": false
+  },
+  "gridCarbonTrajectory": {
+    "baseYear": 2025,
+    "sourceId": "aeo2026",
+    "locator": "Table 18 'Total Electric Power' CO2 (million metric tons) / Table 8 'Total Net Electric Power Sector Generation' (billion kWh)",
+    "derivation": "Low end = eGRID2023 subregion rate x (AEO intensity in build year / AEO intensity in 2025). High end = no decline (U.S. power-sector CO2 rose about 4% in 2025, and the AEO baseline excludes policy not yet in force). Applied to CO2e only; generation water is held at the 2023 mix.",
+    "series": {
+      "2025": {
+        "co2Mt": 1436.263,
+        "genBkWh": 4248.538
+      },
+      "2026": {
+        "co2Mt": 1431.872,
+        "genBkWh": 4370.778
+      },
+      "2027": {
+        "co2Mt": 1292.228,
+        "genBkWh": 4323.669
+      },
+      "2028": {
+        "co2Mt": 1198.53,
+        "genBkWh": 4353.032
+      },
+      "2029": {
+        "co2Mt": 1170.306,
+        "genBkWh": 4388.834
+      },
+      "2030": {
+        "co2Mt": 1104.212,
+        "genBkWh": 4426.289
+      },
+      "2031": {
+        "co2Mt": 1038.579,
+        "genBkWh": 4470.099
+      },
+      "2032": {
+        "co2Mt": 803.678,
+        "genBkWh": 4527.198
+      },
+      "2033": {
+        "co2Mt": 742.847,
+        "genBkWh": 4600.632
+      },
+      "2034": {
+        "co2Mt": 715.503,
+        "genBkWh": 4691.218
+      },
+      "2035": {
+        "co2Mt": 701.939,
+        "genBkWh": 4784.01
+      }
+    },
+    "verified": false
+  },
+  "generationWaterGalPerMWh": {
+    "sourceId": "macknick2012",
+    "locator": "Table 2 (non-renewable) and Table 1 (renewable), operational CONSUMPTION medians",
+    "derivation": "eGRID's resource mix doesn't say which cooling technology each fuel's plants use, so low = once-through-cooled median and high = cooling-tower median for that fuel's dominant technology. Hydropower reservoir evaporation is EXCLUDED: Macknick reports 1,425-18,000 gal/MWh depending on how a reservoir's evaporation is allocated, and they leave it out of their own figures for that reason.",
+    "fuels": {
+      "coal": {
+        "low": 250,
+        "high": 687,
+        "basis": "coal generic: once-through 250, tower 687"
+      },
+      "oil": {
+        "low": 240,
+        "high": 826,
+        "basis": "no oil factor in Macknick; uses natural gas steam (once-through 240, tower 826) as the closest steam-cycle analog"
+      },
+      "gas": {
+        "low": 100,
+        "high": 205,
+        "basis": "natural gas combined cycle: once-through 100, tower 205"
+      },
+      "nuclear": {
+        "low": 269,
+        "high": 672,
+        "basis": "nuclear generic: once-through 269, tower 672"
+      },
+      "hydro": {
+        "low": 0,
+        "high": 0,
+        "basis": "excluded -- see derivation"
+      },
+      "biomass": {
+        "low": 300,
+        "high": 553,
+        "basis": "biopower steam: once-through 300, tower 553"
+      },
+      "wind": {
+        "low": 0,
+        "high": 0,
+        "basis": "wind turbine median 0"
+      },
+      "solar": {
+        "low": 0,
+        "high": 5,
+        "basis": "utility-scale PV min 0, max 5"
+      },
+      "geothermal": {
+        "low": 5,
+        "high": 461,
+        "basis": "lowest/highest median across flash and binary configurations (EGS excluded)"
+      },
+      "otherFossil": {
+        "low": 100,
+        "high": 205,
+        "basis": "treated as natural gas combined cycle"
+      },
+      "unknown": {
+        "low": 100,
+        "high": 205,
+        "basis": "treated as natural gas combined cycle"
+      }
+    },
+    "verified": false
+  },
+  "powerSources": {
+    "grid": {
+      "label": "Regional grid",
+      "description": "Draws from the local eGRID subregion's actual 2023 generation mix."
+    },
+    "onsite_gas": {
+      "label": "On-site gas plant",
+      "description": "A dedicated natural gas combined-cycle plant beside the facility.",
+      "co2LbPerMWh": {
+        "low": 833.6,
+        "high": 880.6
+      },
+      "co2Derivation": "heat rate 7,146-7,549 Btu/kWh (EIA: 2020 average operating heat rate; 2023 tested heat rate) x 116.65 lb CO2/MMBtu. Combustion CO2 only -- excludes upstream methane leakage, so this undercounts relative to eGRID's CO2e.",
+      "co2SourceIds": [
+        "eiaHeatRate",
+        "eiaCo2Coefficients"
+      ],
+      "waterGalPerMWh": {
+        "low": 2,
+        "high": 205
+      },
+      "waterDerivation": "Macknick Table 2 NGCC: dry-cooled median 2, cooling-tower median 205.",
+      "waterSourceId": "macknick2012",
+      "verified": false
+    },
+    "dedicated_renewables": {
+      "label": "Wind/solar contract",
+      "description": "A power purchase agreement for wind and solar that matches the facility's annual consumption.",
+      "derivation": "Low end = the contracted wind/solar itself (about 0 CO2, 0-5 gal/MWh). High end = the local grid: annual matching doesn't cover the hours the wind and sun aren't there, and in those hours the facility physically runs on the grid mix. Where a given contract falls depends on hourly matching and additionality, which the operator rarely discloses.",
+      "verified": false
+    }
+  },
+  "costAllocation": {
+    "capacityPriceUsdPerMWDay": {
+      "low": 269.92,
+      "high": 333.44,
+      "sourceIds": [
+        "pjm2526",
+        "pjm2728"
+      ],
+      "note": "PJM capacity prices, used as an illustrative benchmark for the yearly cost of one megawatt of generating capacity. Other regions price capacity differently or not at all. Transmission upgrades are not included and are often larger."
+    },
+    "residentialShareOfSales": {
+      "value": 0.373,
+      "sourceId": "eiaSales",
+      "locator": "2024: residential 1,482,873,586 MWh of 3,975,381,832 MWh total",
+      "note": "Stands in for the residential class's share of socialized costs. Real allocators use peak-demand-based factors set in rate cases."
+    },
+    "defaultResidentialCustomers": {
+      "value": 1000000,
+      "note": "Illustrative default for a mid-sized utility. The user can change it."
+    },
+    "verified": false
+  },
+  "householdWater": {
+    "galPerDay": 300,
+    "sourceId": "epaWaterSense",
+    "note": "Used only to translate onsite water into a familiar scale.",
+    "verified": false
+  },
+  "householdElectricity": {
+    "kWhPerYear": 10791,
+    "sourceId": "eiaHomeUse",
+    "note": "Used only to translate electricity into homes' worth. Counts utility purchases, so it slightly understates use in homes with rooftop solar.",
+    "verified": false
+  },
+  "passengerVehicle": {
+    "tCo2PerYear": 4.6,
+    "sourceId": "epaVehicle",
+    "note": "Used only to translate emissions into cars' worth. Tailpipe CO2 only.",
+    "verified": false
+  },
+  "contestedEvidence": [
+    {
+      "source": "EPRI / Watershed working paper (2026)",
+      "finding": "Looking back at 2015–2024, places that added data centers saw average home electricity rates fall slightly, not rise. Virginia, where data centers use over 20% of the power, tracked the national average.",
+      "limits": "Only looks backward, mostly at the years before the 2025–26 AI building boom."
+    },
+    {
+      "source": "NC State / Carnegie Mellon (2026)",
+      "finding": "Projected that wholesale electricity prices (what utilities pay power plants) could rise 6–29% nationally by 2030, and up to 57% in the hardest-hit regions.",
+      "limits": "Wholesale prices aren't your bill. They make up only 30–50% of a typical home's bill."
+    },
+    {
+      "source": "PolitiFact (June 2026)",
+      "finding": "A viral '267% increase' figure was about wholesale prices, not what households pay each month.",
+      "limits": "It corrects one claim. It doesn't show the impact is zero."
+    },
+    {
+      "source": "Lawrence Berkeley National Lab (2026)",
+      "finding": "Data centers are one cause among several, alongside equipment costs, aging power lines, and clean energy requirements.",
+      "limits": "It's hard to pin rising bills on any one cause, and single-cause stories are wrong in both directions."
+    }
+  ],
+  "contestedEvidenceNote": "Plain-language paraphrase of the project brief's section 3 table. Links and dates still need to be added and checked."
+}
