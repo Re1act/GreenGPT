@@ -88,6 +88,17 @@ export function droughtPlain(level: string | null | undefined) {
   return DROUGHT[level] ?? { label: level, plain: `is rated ${level} by the US Drought Monitor` };
 }
 
+/**
+ * A cooling-share percentage as words. Rounded to the nearest 5 because the
+ * underlying values were read off a chart by eye (see coolingShares).
+ */
+export function sharePhrase(pct: number | null): string {
+  if (pct === null) return "not tracked separately";
+  if (pct === 0) return "almost none";
+  if (pct < 5) return "under 5%";
+  return `about ${Math.round(pct / 5) * 5}%`;
+}
+
 /** How many average U.S. homes one megawatt of continuous draw equals. */
 export function homesPerMegawatt(): number {
   return (HOURS_PER_YEAR * 1000) / COEFFICIENTS.householdElectricity.kWhPerYear;

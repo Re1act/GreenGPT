@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-16-draft.2",
+  "version": "2026-10-16-draft.4",
   "asOf": "2026-10-16",
   "reviewStatus": "DRAFT -- every value below was drafted by Claude from the cited sources and is marked verified:false until the project owner checks it against the source.",
   "sources": {
@@ -67,6 +67,31 @@
       "name": "WRI Aqueduct, Water Risk Indicators (baseline water stress = annual withdrawals as a share of available supply; bands <10%, 10-20%, 20-40%, 40-80%, >80%)",
       "url": "https://www.wri.org/aqueduct/help-center/water-risk-indicators",
       "date": "accessed 2026-10-16"
+    },
+    "fercSom2025": {
+      "name": "FERC 2025 State of the Markets report, as reported by Utility Dive (50 GW of data centers online at end of 2025)",
+      "url": "https://www.utilitydive.com/news/data-centers-miso-ferc-market-report/815831/",
+      "date": "2026-03-26"
+    },
+    "cleanviewBtm": {
+      "name": "Cleanview, Bypassing the Grid: How Data Center Developers Are Building Their Own Power Plants",
+      "url": "https://cleanview.co/reports/behind-the-meter-data-centers",
+      "date": "mid-2026"
+    },
+    "google2025": {
+      "name": "Google 2025 Environmental Report (66% hourly carbon-free energy in 2024)",
+      "url": "https://sustainability.google/reports/google-2025-environmental-report/",
+      "date": "2025-06"
+    },
+    "annualMatching": {
+      "name": "AI Data Centers and Power System Sustainability (arXiv 2606.21064), table of hyperscaler renewable matching claims",
+      "url": "https://arxiv.org/pdf/2606.21064",
+      "date": "2026"
+    },
+    "guardianDrought": {
+      "name": "The Guardian (Milman & Witherspoon), analysis of 809 planned US data centers using Cleanview and NIDIS drought data; republished by Mother Jones",
+      "url": "https://motherjones.com/politics/2026/06/data-centers-site-location-drought-stricken-areas-water-usage",
+      "date": "2026-06"
     }
   },
   "utilization": {
@@ -80,8 +105,8 @@
   },
   "cooling": {
     "evaporative": {
-      "label": "Evaporative (cooling towers)",
-      "description": "Water-cooled chillers with a waterside economizer. Heat leaves through cooling towers by evaporating water.",
+      "label": "Cooling towers, all year",
+      "description": "Water-cooled chillers with cooling towers running year-round. Heat leaves by evaporating water.",
       "pue": {
         "low": 1.02,
         "high": 1.25
@@ -93,6 +118,22 @@
       "sourceId": "lbnl2024",
       "locator": "Figure 4.4 (p. 46), large-scale rows 'Waterside economizer (water-cooled chiller)' and 'IT Liquid cooling: waterside economizer (water-cooled chiller)'; range spans both rows' whiskers",
       "derivation": "Values read off a box-plot figure by eye (about +/-0.02 PUE, +/-0.05 WUE). The low end is a best-practice facility in a favorable climate; the high end is poor efficiency in a hot, humid climate.",
+      "verified": false
+    },
+    "hybrid_air": {
+      "label": "Outside air + water on hot days",
+      "description": "Outside air does most of the cooling; water is evaporated (adiabatic assist or cooling towers) only when it's hot.",
+      "pue": {
+        "low": 1.02,
+        "high": 1.33
+      },
+      "wueSiteLPerKWh": {
+        "low": 0.02,
+        "high": 1.55
+      },
+      "sourceId": "lbnl2024",
+      "locator": "Figure 4.4 (p. 46), large-scale rows 'Airside economizer & adiabatic cooling (air-cooled chiller)' and '(water-cooled chiller)'; range spans both rows' whiskers",
+      "derivation": "Values read off a box-plot figure by eye. LBNL notes (p. 47) its simulation probably understates this design's water use: some hyperscale operators report 0.1-0.3 L/kWh for similar systems, versus near 0 simulated for the air-cooled-chiller variant.",
       "verified": false
     },
     "closed_loop": {
@@ -142,6 +183,107 @@
       "locator": "Table 4.2 (p. 42) groups immersion with direct-to-chip under 'IT liquid cooling'; values reuse Figure 4.4's 'IT Liquid cooling: dry cooler (air-cooled chiller)' row",
       "derivation": "LBNL does not model immersion separately, and no peer-reviewed measured annual PUE for immersion was found while drafting. Same numbers as closed-loop until a better source is added. The up-front cost difference is not modeled.",
       "verified": false
+    }
+  },
+  "coolingShares": {
+    "sourceId": "lbnl2024",
+    "locator": "Figure 4.2 (p. 39), 'Data center cooling systems distribution by space category in 2023', Hyperscale and AI Specialized bars",
+    "derivation": "LBNL estimated these splits from Dell'Oro Group equipment-sales data plus industry expert input (p. 38). Read off a stacked bar chart by eye (about +/-3 points), then grouped: towers all year = waterside economizer + water-cooled chiller + IT liquid waterside economizer; outside air + water on hot days = airside economizer & adiabatic (both chiller types) + airside economizer (water-cooled chiller) + dry cooler with adiabatic assist; fans/AC = airside economizer (air-cooled chiller) + air-cooled chiller + direct expansion + dry cooler; closed loop = IT liquid dry cooler with and without adiabatic assist. LBNL doesn't track immersion separately.",
+    "year": 2023,
+    "byCooling": {
+      "evaporative": {
+        "hyperscalePct": 2,
+        "aiPct": 23
+      },
+      "hybrid_air": {
+        "hyperscalePct": 92,
+        "aiPct": 32
+      },
+      "closed_loop": {
+        "hyperscalePct": 0,
+        "aiPct": 43
+      },
+      "air": {
+        "hyperscalePct": 6,
+        "aiPct": 2
+      },
+      "immersion": {
+        "hyperscalePct": null,
+        "aiPct": null
+      }
+    },
+    "verified": false
+  },
+  "contextStats": {
+    "location": {
+      "plannedInDrought": {
+        "count": 517,
+        "of": 809,
+        "sourceId": "guardianDrought",
+        "note": "Planned facilities in areas that were in drought at some point in the past year.",
+        "verified": false
+      },
+      "topStates": {
+        "states": [
+          "Virginia",
+          "California",
+          "Texas"
+        ],
+        "sourceId": "lbnl2024",
+        "locator": "p. 37: Virginia hosts the highest data center electricity demand, followed by California and Texas",
+        "verified": false
+      }
+    },
+    "size": {
+      "averageNewMW": {
+        "y2020": 25,
+        "y2025": 80,
+        "sourceId": "fercSom2025",
+        "note": "Average size of data centers coming online; 2025 value reported as 'nearly 80 MW'. FERC's MW may measure whole-facility capacity rather than the computers' capacity the simulator's size slider uses, so the comparison is approximate.",
+        "verified": false
+      }
+    },
+    "power": {
+      "operatingGW": {
+        "value": 50,
+        "sourceId": "fercSom2025",
+        "note": "'More than 50 GW' operating at end of 2025.",
+        "verified": false
+      },
+      "ownPlants": {
+        "operatingGW": 2,
+        "plannedGW": 90,
+        "plannedProjects": 59,
+        "shareOfPlannedCapacityPct": 25,
+        "sourceId": "cleanviewBtm",
+        "note": "Behind-the-meter (own power plant) projects, all fuels; Cleanview gives no fuel split. 'More than 25%' of all planned U.S. data center capacity.",
+        "verified": false
+      },
+      "contracts": {
+        "annualMatchingCompanies": [
+          "Google",
+          "Meta",
+          "Amazon"
+        ],
+        "googleHourlyCfePct": 66,
+        "googleYear": 2024,
+        "sourceIds": [
+          "annualMatching",
+          "google2025"
+        ],
+        "note": "Annual matching claims from the arXiv paper's table; Google's hourly carbon-free share counts all carbon-free sources (including nuclear and hydro), not only wind and solar.",
+        "verified": false
+      }
+    },
+    "year": {
+      "shareOfUsElectricity": {
+        "y2023Pct": 4.4,
+        "y2028LowPct": 6.7,
+        "y2028HighPct": 12,
+        "sourceId": "lbnl2024",
+        "locator": "p. 52, Total Electricity Use",
+        "verified": false
+      }
     }
   },
   "futureBuildUncertainty": {

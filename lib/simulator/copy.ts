@@ -9,10 +9,17 @@ export const COOLING_COPY: Record<
   { title: string; analogy: string; body: string; water: string; power: string }
 > = {
   evaporative: {
-    title: "Evaporate water",
+    title: "Cooling towers, all year",
     analogy: "Works like sweating",
     body: "Warm water from the building is pumped through cooling towers. Some of it evaporates, and that carries the heat away, the same way sweat cools your skin. It needs little extra electricity, but the evaporated water is gone for good.",
     water: "Lots of water",
+    power: "Little extra electricity",
+  },
+  hybrid_air: {
+    title: "Outside air, plus water on hot days",
+    analogy: "Like opening the windows, with a mister for heat waves",
+    body: "Most of the year, fans just pull cool outside air through the building. When it gets hot, water is sprayed into the air or run through cooling towers to help. It uses much less water than running towers all year, but how much depends a lot on the local climate: the hotter the place, the more hot days.",
+    water: "Some water, mostly on hot days",
     power: "Little extra electricity",
   },
   closed_loop: {

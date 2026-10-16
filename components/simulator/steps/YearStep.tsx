@@ -4,8 +4,12 @@ import COEFFICIENTS from "@/lib/simulator/coefficients.json";
 import { formatRange, sig } from "@/lib/simulator/format";
 import { POWER_COPY } from "@/lib/simulator/copy";
 import { MAX_BUILD_YEAR, MIN_BUILD_YEAR } from "@/lib/simulator/model";
-import { Fact, StepQuestion, WhatHappens } from "@/components/simulator/ui";
+import { homesPerMegawatt } from "@/lib/simulator/plainEnglish";
+import { Fact, HowCommon, StepQuestion, WhatHappens } from "@/components/simulator/ui";
 import type { StepProps } from "@/components/simulator/steps/types";
+
+const SHARE = COEFFICIENTS.contextStats.year.shareOfUsElectricity;
+const gwToHomes = (gw: number) => gw * 1000 * homesPerMegawatt();
 
 export default function YearStep({ inputs, set, result }: StepProps) {
   const base = COEFFICIENTS.gridCarbonTrajectory.baseYear;
@@ -41,6 +45,17 @@ export default function YearStep({ inputs, set, result }: StepProps) {
             <span>{MAX_BUILD_YEAR}</span>
           </div>
         </div>
+
+        <HowCommon
+          title="How fast is this growing?"
+          source="Lawrence Berkeley National Laboratory (2024); FERC (2026)"
+        >
+          U.S. data centers used {SHARE.y2023Pct}% of the country&apos;s electricity in 2023. A
+          national lab projects {SHARE.y2028LowPct}–{SHARE.y2028HighPct}% by 2028. More than{" "}
+          {COEFFICIENTS.contextStats.power.operatingGW.value} gigawatts of data centers were already running
+          by the end of 2025. Running at full power all year, that would use as much electricity as
+          about {sig(gwToHomes(COEFFICIENTS.contextStats.power.operatingGW.value) / 1e6)} million homes.
+        </HowCommon>
       </div>
 
       <WhatHappens>

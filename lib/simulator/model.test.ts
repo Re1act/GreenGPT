@@ -219,6 +219,20 @@ describe("coefficients file integrity", () => {
     for (const v of flagged) expect(v.verified).toBe(false);
   });
 
+  it("gives every cooling type a share entry, and each column sums to ~100%", () => {
+    const shares = COEFFICIENTS.coolingShares.byCooling as Record<
+      string,
+      { hyperscalePct: number | null; aiPct: number | null }
+    >;
+    expect(Object.keys(shares).sort()).toEqual([...COOLING_TYPES].sort());
+    const sum = (k: "hyperscalePct" | "aiPct") =>
+      Object.values(shares).reduce((acc, s) => acc + (s[k] ?? 0), 0);
+    expect(sum("hyperscalePct")).toBeGreaterThanOrEqual(97);
+    expect(sum("hyperscalePct")).toBeLessThanOrEqual(103);
+    expect(sum("aiPct")).toBeGreaterThanOrEqual(97);
+    expect(sum("aiPct")).toBeLessThanOrEqual(103);
+  });
+
   it("has an AEO series row for the base year", () => {
     const years = Object.keys(COEFFICIENTS.gridCarbonTrajectory.series);
     expect(years).toContain(String(COEFFICIENTS.gridCarbonTrajectory.baseYear));

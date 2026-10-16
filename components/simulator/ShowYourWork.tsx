@@ -70,6 +70,23 @@ function Step({
   );
 }
 
+const SOURCES = COEFFICIENTS.sources as Record<string, { name: string; url: string; date: string }>;
+
+function SourceLink({ id }: { id: string }) {
+  const s = SOURCES[id];
+  if (!s) return <>{id}</>;
+  return (
+    <a
+      href={s.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#2a78d6] underline dark:text-[#6da7ec]"
+    >
+      {s.name}
+    </a>
+  );
+}
+
 function Assumption({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <li className="border-t border-black/5 py-2 text-xs leading-relaxed text-zinc-600 dark:border-white/5 dark:text-zinc-400">
@@ -97,8 +114,8 @@ export default function ShowYourWork({
   const fut = COEFFICIENTS.futureBuildUncertainty;
   const util = COEFFICIENTS.utilization;
   const power = COEFFICIENTS.powerSources[inputs.powerSource];
-  const sourceName = (id: string) =>
-    (COEFFICIENTS.sources as Record<string, { name: string }>)[id]?.name ?? id;
+  const shares = COEFFICIENTS.coolingShares;
+  const ctx = COEFFICIENTS.contextStats;
 
   return (
     <div className="flex flex-col gap-4">
@@ -151,18 +168,18 @@ export default function ShowYourWork({
         </h3>
         <ul className="mt-1">
           <Assumption title={`PUE ${s3(cooling.pue.low)}–${s3(cooling.pue.high)}, WUE ${s3(cooling.wueSiteLPerKWh.low)}–${s3(cooling.wueSiteLPerKWh.high)} L/kWh (${cooling.label})`}>
-            {sourceName(cooling.sourceId)}, {cooling.locator}. {cooling.derivation}
+            <SourceLink id={cooling.sourceId} />, {cooling.locator}. {cooling.derivation}
           </Assumption>
           {r.futureUncertaintyApplied && (
             <Assumption title={`Build year ${inputs.buildYear}: ranges widened ±${fut.spread * 100}%`}>
-              {sourceName(fut.sourceId)}, {fut.locator}. {fut.derivation}
+              <SourceLink id={fut.sourceId} />, {fut.locator}. {fut.derivation}
             </Assumption>
           )}
           <Assumption title={`Utilization ${s3(util.low)}–${s3(util.high)}`}>
-            {sourceName(util.sourceId)}, {util.locator}. {util.derivation}
+            <SourceLink id={util.sourceId} />, {util.locator}. {util.derivation}
           </Assumption>
           <Assumption title="Generation water by fuel">
-            {sourceName(gw.sourceId)}, {gw.locator}. {gw.derivation}
+            <SourceLink id={gw.sourceId} />, {gw.locator}. {gw.derivation}
           </Assumption>
           <Assumption title={`Grid region: ${r.region.name}${r.region.code ? ` (${r.region.code})` : ""}`}>
             {r.region.isUsAverage
@@ -170,7 +187,7 @@ export default function ShowYourWork({
               : "Resolved from the site you picked, using EPA eGRID2023 subregion boundaries. EPA notes these boundaries are approximate."}
           </Assumption>
           <Assumption title="Grid carbon by build year">
-            {sourceName(traj.sourceId)}, {traj.locator}. {traj.derivation}
+            <SourceLink id={traj.sourceId} />, {traj.locator}. {traj.derivation}
           </Assumption>
           <Assumption title={`Power source: ${power.label}`}>
             {inputs.powerSource === "onsite_gas"
@@ -178,6 +195,53 @@ export default function ShowYourWork({
               : inputs.powerSource === "dedicated_renewables"
                 ? COEFFICIENTS.powerSources.dedicated_renewables.derivation
                 : power.description}
+          </Assumption>
+        </ul>
+      </div>
+
+      <div>
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+          Where the &ldquo;how common&rdquo; and real-world numbers come from
+        </h3>
+        <p className="mt-1 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
+          These don&apos;t feed the formulas above. They give context for each step.
+        </p>
+        <ul className="mt-1">
+          <Assumption title={`How common each cooling design is (${shares.year})`}>
+            <SourceLink id={shares.sourceId} />, {shares.locator}. {shares.derivation}
+          </Assumption>
+          <Assumption title="Planned data centers in drought areas">
+            <SourceLink id={ctx.location.plannedInDrought.sourceId} />.{" "}
+            {ctx.location.plannedInDrought.count} of {ctx.location.plannedInDrought.of}.{" "}
+            {ctx.location.plannedInDrought.note}
+          </Assumption>
+          <Assumption title="States with the most data center electricity use">
+            <SourceLink id={ctx.location.topStates.sourceId} />, {ctx.location.topStates.locator}.
+          </Assumption>
+          <Assumption title="Average size of new data centers">
+            <SourceLink id={ctx.size.averageNewMW.sourceId} />. {ctx.size.averageNewMW.note}
+          </Assumption>
+          <Assumption title="Data centers running on their own power plants">
+            <SourceLink id={ctx.power.operatingGW.sourceId} /> ({ctx.power.operatingGW.note}) and{" "}
+            <SourceLink id={ctx.power.ownPlants.sourceId} />. {ctx.power.ownPlants.note}
+          </Assumption>
+          <Assumption title="Renewable contracts and hour-by-hour clean power">
+            {ctx.power.contracts.sourceIds.map((id, i) => (
+              <span key={id}>
+                {i > 0 && " and "}
+                <SourceLink id={id} />
+              </span>
+            ))}
+            . {ctx.power.contracts.note}
+          </Assumption>
+          <Assumption title="Data centers' share of U.S. electricity">
+            <SourceLink id={ctx.year.shareOfUsElectricity.sourceId} />,{" "}
+            {ctx.year.shareOfUsElectricity.locator}.
+          </Assumption>
+          <Assumption title="Everyday comparisons (homes, families, cars)">
+            <SourceLink id={COEFFICIENTS.householdElectricity.sourceId} />;{" "}
+            <SourceLink id={COEFFICIENTS.householdWater.sourceId} />;{" "}
+            <SourceLink id={COEFFICIENTS.passengerVehicle.sourceId} />.
           </Assumption>
         </ul>
       </div>

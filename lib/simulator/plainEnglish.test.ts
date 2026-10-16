@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { describeMix, droughtPlain, homesPerMegawatt, waterStressBand } from "@/lib/simulator/plainEnglish";
+import {
+  describeMix,
+  droughtPlain,
+  homesPerMegawatt,
+  sharePhrase,
+  waterStressBand,
+} from "@/lib/simulator/plainEnglish";
 
 describe("describeMix", () => {
   it("names the biggest sources in plain words, largest first", () => {
@@ -33,6 +39,16 @@ describe("droughtPlain", () => {
     expect(droughtPlain("D2")?.label).toBe("Severe drought");
     expect(droughtPlain(null)).toBeNull();
     expect(droughtPlain("D9")?.label).toBe("D9");
+  });
+});
+
+describe("sharePhrase", () => {
+  it("rounds to the nearest 5% and words the edge cases", () => {
+    expect(sharePhrase(92)).toBe("about 90%");
+    expect(sharePhrase(43)).toBe("about 45%");
+    expect(sharePhrase(2)).toBe("under 5%");
+    expect(sharePhrase(0)).toBe("almost none");
+    expect(sharePhrase(null)).toBe("not tracked separately");
   });
 });
 

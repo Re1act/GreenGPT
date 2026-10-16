@@ -1,9 +1,13 @@
 "use client";
 
+import COEFFICIENTS from "@/lib/simulator/coefficients.json";
 import RegionPicker from "@/components/simulator/RegionPicker";
+import { HowCommon } from "@/components/simulator/ui";
 import { describeMix, droughtPlain, mixForSubregion, waterStressBand } from "@/lib/simulator/plainEnglish";
 import { placeName, type RegionLookup } from "@/lib/simulator/region";
 import type { LatLon } from "@/lib/simulator/params";
+
+const LOC = COEFFICIENTS.contextStats.location;
 
 function PlaceFacts({ lookup }: { lookup: RegionLookup }) {
   if (lookup.status === "loading") {
@@ -121,6 +125,18 @@ export default function LocationStep({
               <PlaceFacts lookup={lookup} />
             </div>
           )}
+
+          <div className="mt-4">
+            <HowCommon
+              title="Where data centers are going"
+              source="The Guardian (2026); Lawrence Berkeley National Laboratory (2024)"
+            >
+              About two-thirds of planned U.S. data centers ({LOC.plannedInDrought.count} of{" "}
+              {LOC.plannedInDrought.of}) are in places that were in drought at some point in the past
+              year. {LOC.topStates.states[0]} uses the most data center electricity, followed by{" "}
+              {LOC.topStates.states[1]} and {LOC.topStates.states[2]}.
+            </HowCommon>
+          </div>
 
           <button
             type="button"

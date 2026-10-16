@@ -4,7 +4,7 @@ import COEFFICIENTS from "@/lib/simulator/coefficients.json";
 import { formatRange, scaleRange, sig } from "@/lib/simulator/format";
 import { MAX_IT_LOAD_MW, MIN_IT_LOAD_MW } from "@/lib/simulator/params";
 import { homesPerMegawatt } from "@/lib/simulator/plainEnglish";
-import { Explainer, Fact, StepQuestion, WhatHappens } from "@/components/simulator/ui";
+import { Explainer, Fact, HowCommon, StepQuestion, WhatHappens } from "@/components/simulator/ui";
 import type { StepProps } from "@/components/simulator/steps/types";
 
 const PRESETS = [10, 50, 100, 300, 1000];
@@ -17,6 +17,15 @@ const fromSlider = (v: number) => {
   const mw = 10 ** ((v / 1000) * LOG_MAX);
   return Math.max(MIN_IT_LOAD_MW, mw < 20 ? Math.round(mw) : Math.round(mw / 5) * 5);
 };
+
+const AVG = COEFFICIENTS.contextStats.size.averageNewMW;
+
+function compareToAverage(mw: number): string {
+  const ratio = mw / AVG.y2025;
+  if (ratio >= 1.5) return `Yours would be about ${sig(ratio)} times that size.`;
+  if (ratio <= 0.67) return `Yours would be smaller than that: about ${Math.round(ratio * 100)}% of the average.`;
+  return "Yours is about average.";
+}
 
 export default function SizeStep({ inputs, set, result }: StepProps) {
   const homeMWh = COEFFICIENTS.householdElectricity.kWhPerYear / 1000;
@@ -68,6 +77,11 @@ export default function SizeStep({ inputs, set, result }: StepProps) {
             ))}
           </div>
         </div>
+
+        <HowCommon source="FERC, 2025 State of the Markets report">
+          The average U.S. data center that came online in 2025 was nearly {AVG.y2025} MW, up from{" "}
+          {AVG.y2020} MW in 2020. {compareToAverage(inputs.itLoadMW)}
+        </HowCommon>
       </div>
 
       <WhatHappens>

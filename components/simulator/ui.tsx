@@ -31,6 +31,7 @@ export function ChoiceCard({
   subtitle,
   children,
   tags,
+  footer,
 }: {
   selected: boolean;
   onSelect: () => void;
@@ -38,6 +39,7 @@ export function ChoiceCard({
   subtitle?: string;
   children?: React.ReactNode;
   tags?: string[];
+  footer?: React.ReactNode;
 }) {
   return (
     <button
@@ -50,15 +52,15 @@ export function ChoiceCard({
           : "border-black/10 hover:border-zinc-400 dark:border-white/10 dark:hover:border-zinc-500"
       }`}
     >
-      <div className="flex items-baseline justify-between gap-3">
+      <span className="flex items-baseline justify-between gap-3">
         <span className="font-semibold text-zinc-900 dark:text-zinc-50">{title}</span>
         {subtitle && <span className="text-xs text-zinc-500 dark:text-zinc-400">{subtitle}</span>}
-      </div>
+      </span>
       {children && (
-        <p className="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{children}</p>
+        <span className="mt-1.5 block text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{children}</span>
       )}
       {tags && tags.length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-1.5">
+        <span className="mt-2 flex flex-wrap gap-1.5">
           {tags.map((t) => (
             <span
               key={t}
@@ -67,7 +69,12 @@ export function ChoiceCard({
               {t}
             </span>
           ))}
-        </div>
+        </span>
+      )}
+      {footer && (
+        <span className="mt-3 block border-t border-black/5 pt-2 text-xs text-zinc-600 dark:border-white/10 dark:text-zinc-400">
+          {footer}
+        </span>
       )}
     </button>
   );
@@ -102,6 +109,27 @@ export function Fact({
       {children && (
         <div className="mt-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{children}</div>
       )}
+    </div>
+  );
+}
+
+/** A real-world context stat ("how common is this?") with its source named inline. */
+export function HowCommon({
+  title = "How common is this?",
+  source,
+  children,
+}: {
+  title?: string;
+  source: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-xl border border-emerald-700/20 bg-emerald-50/60 p-3 text-sm leading-relaxed text-zinc-700 dark:border-emerald-400/20 dark:bg-emerald-950/30 dark:text-zinc-300">
+      <div className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-400">
+        {title}
+      </div>
+      <div className="mt-1">{children}</div>
+      <div className="mt-1.5 text-[11px] text-zinc-500 dark:text-zinc-400">Source: {source}</div>
     </div>
   );
 }

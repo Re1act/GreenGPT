@@ -1,13 +1,36 @@
 "use client";
 
+import COEFFICIENTS from "@/lib/simulator/coefficients.json";
 import { formatRange, litersToMillionGallons } from "@/lib/simulator/format";
 import { COOLING_COPY } from "@/lib/simulator/copy";
-import { COOLING_TYPES, type Range } from "@/lib/simulator/model";
+import { COOLING_TYPES, type CoolingType, type Range } from "@/lib/simulator/model";
+import { sharePhrase } from "@/lib/simulator/plainEnglish";
 import CoolingComparison from "@/components/simulator/CoolingComparison";
-import { ChoiceCard, Fact, StepQuestion, WhatHappens } from "@/components/simulator/ui";
+import { ChoiceCard, Explainer, Fact, StepQuestion, WhatHappens } from "@/components/simulator/ui";
 import type { StepProps } from "@/components/simulator/steps/types";
 
 const pct = (r: Range) => `${Math.round(r.low)}–${Math.round(r.high)}`;
+
+const SHARES = COEFFICIENTS.coolingShares;
+
+function ShareLine({ cooling }: { cooling: CoolingType }) {
+  const s = SHARES.byCooling[cooling];
+  if (s.hyperscalePct === null && s.aiPct === null) {
+    return (
+      <>
+        <span className="font-medium text-zinc-800 dark:text-zinc-200">How common:</span> not
+        tracked separately in national estimates yet
+      </>
+    );
+  }
+  return (
+    <>
+      <span className="font-medium text-zinc-800 dark:text-zinc-200">How common ({SHARES.year}):</span>{" "}
+      {sharePhrase(s.hyperscalePct)} of large data centers · {sharePhrase(s.aiPct)} of AI data
+      centers
+    </>
+  );
+}
 
 export default function CoolingStep({ inputs, set, result, byCooling }: StepProps) {
   const water = litersToMillionGallons(result.onsiteWaterL);
@@ -36,11 +59,21 @@ export default function CoolingStep({ inputs, set, result, byCooling }: StepProp
                 title={COOLING_COPY[c].title}
                 subtitle={COOLING_COPY[c].analogy}
                 tags={[COOLING_COPY[c].water, COOLING_COPY[c].power]}
+                footer={<ShareLine cooling={c} />}
               >
                 {COOLING_COPY[c].body}
               </ChoiceCard>
             ))}
           </div>
+          <Explainer title="Where do the “how common” numbers come from?">
+            From a 2024 Lawrence Berkeley National Laboratory study of U.S. data centers. It
+            estimated how cooling was split in {SHARES.year} using equipment sales data and input
+            from industry experts. &ldquo;Large data centers&rdquo; are the giant facilities run by
+            companies like Amazon, Microsoft, and Google. &ldquo;AI data centers&rdquo; are the ones
+            built for AI chips, which run hotter and are moving to liquid cooling. The numbers are
+            rounded because they were read off a chart. The study doesn&apos;t count submerged
+            servers separately.
+          </Explainer>
         </div>
 
         <div className="lg:sticky lg:top-4 lg:self-start">
@@ -76,7 +109,7 @@ export default function CoolingStep({ inputs, set, result, byCooling }: StepProp
 
       <section>
         <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
-          How the four options compare here
+          How the five options compare here
         </h2>
         <p className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400">
           Same place and size. Each bar runs from the best case to the worst case. Click a row to

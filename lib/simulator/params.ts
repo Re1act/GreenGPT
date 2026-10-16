@@ -29,7 +29,9 @@ export const MAX_IT_LOAD_MW = 2000;
 
 export const DEFAULT_INPUTS: ScenarioInputs = {
   itLoadMW: 100,
-  cooling: "evaporative",
+  // The most common design at large U.S. data centers (coolingShares in
+  // coefficients.json), so the walkthrough starts from what's typical.
+  cooling: "hybrid_air",
   powerSource: "grid",
   buildYear: 2026,
   residentialCustomers: COEFFICIENTS.costAllocation.defaultResidentialCustomers.value,
