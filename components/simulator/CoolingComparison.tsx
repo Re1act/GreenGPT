@@ -16,7 +16,7 @@ function RangeBar({ r, max, label }: { r: Range; max: number; label: string }) {
   return (
     <div className="relative h-2 w-full rounded-full bg-zinc-100 dark:bg-zinc-800" title={label}>
       <div
-        className="absolute inset-y-0 rounded-full bg-[#2a78d6] dark:bg-[#6da7ec]"
+        className="absolute inset-y-0 rounded-full bg-emerald-600"
         style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}
       />
     </div>
@@ -46,12 +46,12 @@ export default function CoolingComparison({
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[34rem] text-sm">
+      <table className="w-full table-fixed text-xs">
         <thead>
           <tr className="text-left text-xs text-zinc-500 dark:text-zinc-400">
-            <th className="py-2 pr-3 font-medium">How it&apos;s cooled</th>
-            <th className="w-[38%] py-2 pr-3 font-medium">Water used up at the building (million gallons a year)</th>
-            <th className="w-[38%] py-2 font-medium">Total electricity (homes&apos; worth a year)</th>
+            <th className="py-2 pr-2 font-medium">How it&apos;s cooled</th>
+            <th className="w-[31%] py-2 pr-2 font-medium">Water used up at the building (million gallons a year)</th>
+            <th className="w-[31%] py-2 font-medium">Total electricity (homes&apos; worth a year)</th>
           </tr>
         </thead>
         <tbody>
@@ -67,7 +67,7 @@ export default function CoolingComparison({
                   active ? "bg-zinc-100 dark:bg-zinc-800/60" : "hover:bg-zinc-50 dark:hover:bg-zinc-900"
                 }`}
               >
-                <td className="py-2 pr-3">
+                <td className="py-2 pr-2">
                   {/* Keyboard target; the click bubbles to the row's handler. */}
                   <button
                     type="button"
@@ -77,7 +77,7 @@ export default function CoolingComparison({
                     {row.label}
                   </button>
                 </td>
-                <td className="py-2 pr-3">
+                <td className="py-2 pr-2">
                   <RangeBar r={row.water} max={maxWater} label={`${row.label}: ${waterText} million gallons a year`} />
                   <div className="mt-1 text-xs tabular-nums text-zinc-600 dark:text-zinc-400">{waterText}</div>
                 </td>

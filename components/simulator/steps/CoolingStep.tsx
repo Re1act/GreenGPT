@@ -39,7 +39,7 @@ export default function CoolingStep({ inputs, set, result, byCooling }: StepProp
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid items-start gap-5 md:grid-cols-2">
         <div className="flex flex-col gap-5">
           <StepQuestion
             eyebrow="Step 3 of 6 · Cooling"
@@ -61,7 +61,7 @@ export default function CoolingStep({ inputs, set, result, byCooling }: StepProp
                 tags={[COOLING_COPY[c].water, COOLING_COPY[c].power]}
                 footer={<ShareLine cooling={c} />}
               >
-                {COOLING_COPY[c].body}
+                {inputs.cooling === c ? COOLING_COPY[c].body : null}
               </ChoiceCard>
             ))}
           </div>
@@ -76,7 +76,7 @@ export default function CoolingStep({ inputs, set, result, byCooling }: StepProp
           </Explainer>
         </div>
 
-        <div className="lg:sticky lg:top-4 lg:self-start">
+        <div className="flex min-w-0 flex-col gap-4 md:sticky md:top-4 md:self-start">
           <WhatHappens>
             <Fact
               label="Water used up at the building each year"
@@ -104,10 +104,7 @@ export default function CoolingStep({ inputs, set, result, byCooling }: StepProp
               plants use water too. You&apos;ll see that on the next step.
             </p>
           </WhatHappens>
-        </div>
-      </div>
-
-      <section>
+      <section className="rounded-2xl border border-black/10 bg-white/70 p-4" aria-label="Cooling options comparison">
         <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
           How the five options compare here
         </h2>
@@ -123,6 +120,10 @@ export default function CoolingStep({ inputs, set, result, byCooling }: StepProp
           />
         </div>
       </section>
+        </div>
+      </div>
+
+
     </div>
   );
 }
