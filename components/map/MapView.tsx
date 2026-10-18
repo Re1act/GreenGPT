@@ -11,30 +11,19 @@ import {
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import {
-  droughtFillColorExpression,
-  egridFillColorExpression,
-  electricityPriceFillColorExpression,
-  electricityPriceFillOpacityExpression,
   facilityCircleColorExpression,
   clusterCircleColorExpression,
   clusterCircleRadiusExpression,
-  waterStressFillColorExpression,
 } from "@/lib/map/colors";
 import { buildFacilityPopupHtml, type FacilityProperties } from "@/lib/map/facilityPopup";
-import OverlayControl, { type OverlayKey } from "@/components/map/OverlayControl";
+import ZipSearch from "@/components/map/ZipSearch";
+import FacilityKey from "@/components/map/FacilityKey";
 
 // Free, no-API-key vector basemap -- see https://openfreemap.org. This app
 // never needs a styled/branded basemap, just recognizable coastlines/borders
 // under the data layers, so a hosted free style is the right call over
 // standing up tile infrastructure.
 const BASEMAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
-
-const OVERLAY_LAYER_IDS: Record<Exclude<OverlayKey, "none">, string> = {
-  "water-stress": "water-stress-fill",
-  drought: "drought-fill",
-  egrid: "egrid-fill",
-  "electricity-price": "electricity-price-fill",
-};
 
 async function fetchGeoJson(path: string): Promise<GeoJSON.FeatureCollection> {
   const res = await fetch(path);
@@ -45,14 +34,6 @@ async function fetchGeoJson(path: string): Promise<GeoJSON.FeatureCollection> {
   }
   return body;
 }
-
-const DATA_LAYERS = [
-  { path: "facilities", label: "Facilities" },
-  { path: "water-stress", label: "Water stress" },
-  { path: "drought", label: "Current drought" },
-  { path: "egrid", label: "Grid carbon intensity" },
-  { path: "electricity-price", label: "Electricity price change" },
-] as const;
 
 // Under Next.js 16 + Turbopack (dev, as of this writing), maplibre-gl's
 // internal Worker(new URL(..., import.meta.url)) construction resolves to the
@@ -68,22 +49,8 @@ export default function MapView() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const popupRef = useRef<Popup | null>(null);
-  const [overlay, setOverlay] = useState<OverlayKey>("none");
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [notice, setNotice] = useState<string | null>(null);
-  const [unavailable, setUnavailable] = useState<string[]>([]);
-
-  // Keep layer visibility in sync with the selected overlay without re-adding
-  // sources/layers -- only one overlay is meant to be visible at a time so
-  // stacked choropleths don't turn to mud.
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map || status !== "ready") return;
-    for (const [key, layerId] of Object.entries(OVERLAY_LAYER_IDS)) {
-      if (!map.getLayer(layerId)) continue;
-      map.setLayoutProperty(layerId, "visibility", key === overlay ? "visible" : "none");
-    }
-  }, [overlay, status]);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -103,80 +70,18 @@ export default function MapView() {
 
     map.on("load", async () => {
       try {
-        const results = await Promise.allSettled(
-          DATA_LAYERS.map(({ path }) => fetchGeoJson(`/api/map/${path}`)),
-        );
+        let facilities: GeoJSON.FeatureCollection;
+        try {
+          facilities = await fetchGeoJson("/api/map/facilities");
+        } catch (error) {
+          if (cancelled) return;
+          setNotice(error instanceof Error && error.message === "MAP_NOT_CONFIGURED"
+            ? "Map data is not connected. Showing the base map only."
+            : "Facility data is temporarily unavailable. Showing the base map only. Try reloading.");
+          facilities = { type: "FeatureCollection", features: [] };
+        }
         if (cancelled) return;
-        const failed = DATA_LAYERS.filter((_, index) => results[index].status === "rejected");
-        const notConfigured = results.some(
-          (result) => result.status === "rejected" &&
-            result.reason instanceof Error && result.reason.message === "MAP_NOT_CONFIGURED",
-        );
-        setUnavailable(failed.map(({ path }) => path));
-        setNotice(notConfigured
-          ? "Map data is not connected. Showing the base map only."
-          : failed.length === DATA_LAYERS.length
-            ? "Map data is temporarily unavailable. Showing the base map only. Try reloading."
-            : failed.length
-              ? `Unavailable layers: ${failed.map(({ label }) => label).join(", ")}. Other layers are available.`
-              : null);
-        // An unavailable layer stays empty and is explicitly labeled in the UI.
-        // It must never prevent independently available layers from rendering.
-        const [facilities, waterStress, drought, egrid, electricityPrice] = results.map(
-          (result): GeoJSON.FeatureCollection => result.status === "fulfilled"
-            ? result.value
-            : { type: "FeatureCollection", features: [] },
-        );
 
-        map.addSource("water-stress", { type: "geojson", data: waterStress });
-        map.addLayer({
-          id: OVERLAY_LAYER_IDS["water-stress"],
-          type: "fill",
-          source: "water-stress",
-          layout: { visibility: "none" },
-          paint: { "fill-color": waterStressFillColorExpression, "fill-opacity": 0.65 },
-        });
-
-        map.addSource("drought", { type: "geojson", data: drought });
-        map.addLayer({
-          id: OVERLAY_LAYER_IDS.drought,
-          type: "fill",
-          source: "drought",
-          layout: { visibility: "none" },
-          paint: { "fill-color": droughtFillColorExpression, "fill-opacity": 0.65 },
-        });
-
-        map.addSource("egrid", { type: "geojson", data: egrid });
-        map.addLayer({
-          id: OVERLAY_LAYER_IDS.egrid,
-          type: "fill",
-          source: "egrid",
-          layout: { visibility: "none" },
-          paint: { "fill-color": egridFillColorExpression, "fill-opacity": 0.65 },
-        });
-
-        map.addSource("electricity-price", { type: "geojson", data: electricityPrice });
-        map.addLayer({
-          id: OVERLAY_LAYER_IDS["electricity-price"],
-          type: "fill",
-          source: "electricity-price",
-          layout: { visibility: "none" },
-          paint: {
-            "fill-color": electricityPriceFillColorExpression,
-            "fill-opacity": electricityPriceFillOpacityExpression,
-          },
-        });
-
-        // Facilities go on top of every overlay, always visible: the point
-        // layer is the map's one constant, overlays are the toggleable context.
-        // Thousands of facilities nationally (vs. the original 5-pin AZ demo)
-        // makes clustering a necessity, not polish -- an unclustered national
-        // view is an unreadable smear at low zoom. MapLibre's built-in
-        // supercluster-based clustering handles this without a custom layer:
-        // clustered points aggregate into "clusters" circles sized/colored by
-        // count; individual facilities render (and stay clickable for the
-        // popup) once zoomed in past clusterMaxZoom or once a cluster is thin
-        // enough to break apart.
         map.addSource("facilities", {
           type: "geojson",
           data: facilities,
@@ -276,9 +181,13 @@ export default function MapView() {
   return (
     <div className="relative h-full w-full">
       <div ref={containerRef} className="h-full w-full" />
+      <FacilityKey />
 
-      <div className="pointer-events-none absolute left-3 top-3 z-10 flex flex-col gap-3">
-        <OverlayControl overlay={overlay} onChange={setOverlay} unavailable={unavailable} />
+      <div className="absolute right-14 top-3 z-30 max-w-[calc(100%-4.25rem)]">
+        <ZipSearch onLocate={(center) => {
+          popupRef.current?.remove();
+          mapRef.current?.flyTo({ center, zoom: 11, duration: 1400 });
+        }} />
       </div>
 
       {status === "loading" && (
