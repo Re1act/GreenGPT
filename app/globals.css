@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f9f3;
+  --foreground: #193e43;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -12,17 +13,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
 }
 
 /* Facility click popup (see lib/map/facilityPopup.ts). MapLibre's Popup
@@ -98,3 +92,32 @@ body {
   margin-top: 2px;
   font-style: italic;
 }
+
+/* A consistent daylight palette: water blues, soft sage, and warm paper. */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-emerald-50: #edf5f3;
+  --color-emerald-100: #dceee9;
+  --color-emerald-500: #438c90;
+  --color-emerald-600: #347780;
+  --color-emerald-700: #236973;
+  --color-emerald-800: #205760;
+  --color-emerald-900: #174b50;
+  --color-zinc-50: #f0f5f1;
+  --color-zinc-100: #e9efeb;
+  --color-zinc-500: #637a79;
+  --color-zinc-600: #526968;
+  --color-zinc-700: #3d5657;
+  --color-zinc-800: #29484b;
+  --color-zinc-900: #193e43;
+}
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #428b94; outline-offset: 4px; }
+.home-hero { position: relative; overflow: hidden; padding: 72px max(20px, calc((100vw - 1216px) / 2)); background: linear-gradient(115deg, #edf5ee, #e0eff0); }
+.home-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: #487573; }
+.water-art { position: absolute; width: 420px; height: 420px; top: 32px; right: max(24px, calc((100vw - 1280px) / 2)); opacity: .8; }
+.water-ring { position: absolute; border: 1px solid #8dbebc; border-radius: 50%; transform: rotate(-25deg); }
+.ring-one { inset: 20px; }.ring-two { inset: 65px; }.ring-three { inset: 110px; }
+.water-drop { position: absolute; width: 125px; height: 160px; left: 148px; top: 114px; border-radius: 70% 30% 60% 40%; transform: rotate(35deg); background: linear-gradient(140deg, #8ebdb1, #39818c); box-shadow: 20px 25px 55px #4c94932b; }
+@media(max-width: 1000px) { .water-art { right: -200px; opacity: .25; } }
+@media(max-width: 640px) { .home-hero { padding-top: 45px; padding-bottom: 45px; } .water-art { right: -290px; } }
+@media(prefers-reduced-motion: reduce) { .tool-card { transition: none; } .tool-card:hover { transform: none; } }
