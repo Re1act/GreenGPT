@@ -2,6 +2,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Copy `.env.local.example` to `.env.local` and fill in the URL and anon key for
+your Supabase project. The database must have this repository's migrations and
+ingested map data. Restart the development server after changing these values.
+Without this configuration, the preview displays the base map with a notice;
+facility markers and environmental overlays remain unavailable.
+
+Location search works independently of Supabase. Select a country or territory
+and enter a postal code, or switch to city search for places without postal codes.
+It uses [Photon](https://github.com/komoot/photon) / OpenStreetMap; coverage is
+not exhaustive. The public demo is for moderate traffic with no availability
+guarantee. Searches run only on submission and successful results are cached for
+24 hours (up to 500 entries per server process), with at most one upstream request
+per second per process. Before scaling to multiple server instances or substantial
+traffic, configure `PHOTON_SEARCH_URL` for your own Photon service and use shared
+caching/rate limiting. No API key is needed for the local preview.
+
 First, run the development server:
 
 ```bash

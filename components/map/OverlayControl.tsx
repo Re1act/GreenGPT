@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import {
   DIVERGING_BLUE,
   DIVERGING_MIDPOINT,
@@ -112,12 +114,29 @@ export default function OverlayControl({
   overlay: OverlayKey;
   onChange: (o: OverlayKey) => void;
 }) {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <div className="pointer-events-auto flex w-64 flex-col gap-3 rounded-lg border border-black/10 bg-white/95 p-3 shadow-lg backdrop-blur dark:border-white/10 dark:bg-zinc-900/95">
-      <div>
-        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-          Overlay
+    <div className={`pointer-events-auto flex shrink-0 flex-col gap-3 rounded-lg border border-black/10 p-3 shadow-lg dark:border-white/10 ${
+      collapsed
+        ? "w-56 bg-white/30 dark:bg-zinc-900/30"
+        : "w-64 bg-white/95 backdrop-blur dark:bg-zinc-900/95"
+    }`}>
+      <div className="flex items-center justify-between gap-2">
+        <h2 className="text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-200">
+          {collapsed ? "Map key" : "Overlay"}
         </h2>
+        <button type="button" aria-expanded={!collapsed} aria-controls="map-overlay-options"
+          aria-label={collapsed ? "Show layers" : "Hide layers"}
+          title={collapsed ? "Show layers" : "Hide layers"}
+          onClick={() => setCollapsed((value) => !value)}
+          className="flex h-8 w-8 items-center justify-center rounded text-zinc-800 hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:text-zinc-100 dark:hover:bg-white/10">
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="h-4 w-4">
+            <path d={collapsed ? "M3 8h10M8 3v10" : "M3 8h10"} strokeLinecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div id="map-overlay-options" hidden={collapsed}>
         <div className="flex flex-col gap-1">
           {OVERLAYS.map((o) => (
             <button
@@ -135,9 +154,16 @@ export default function OverlayControl({
           ))}
         </div>
       </div>
-      <div className="border-t border-black/10 pt-3 dark:border-white/10">
-        <OverlayLegend overlay={overlay} />
-      </div>
+      {(!collapsed || overlay !== "none") && (
+        <div className="border-t border-black/10 pt-3 dark:border-white/10">
+          {collapsed && (
+            <h3 className="mb-2 text-xs font-semibold text-zinc-800 dark:text-zinc-100">
+              {OVERLAYS.find(({ key }) => key === overlay)?.label}
+            </h3>
+          )}
+          <OverlayLegend overlay={overlay} />
+        </div>
+      )}
       <div className="border-t border-black/10 pt-3 dark:border-white/10">
         <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
           Facilities
