@@ -45,17 +45,20 @@ export const COOLING_COPY: Record<
   },
 };
 
-export const POWER_COPY: Record<PowerSource, { title: string; body: string }> = {
+export const POWER_COPY: Record<PowerSource, { title: string; analogy: string; body: string }> = {
   grid: {
     title: "The local power grid",
+    analogy: "Like plugging into a shared outlet",
     body: "Plug into the same grid as everyone else nearby, and use whatever mix of power plants feeds it.",
   },
   onsite_gas: {
     title: "Its own gas power plant",
+    analogy: "Like running your own generator",
     body: "Build a natural gas power plant next door just for the data center. That avoids waiting for the grid to add capacity, but the data center's pollution becomes that plant's pollution.",
   },
   dedicated_renewables: {
     title: "A wind and solar contract",
+    analogy: "Like balancing a yearly energy budget",
     body: "Pay wind and solar farms to produce as much electricity over a year as the data center uses. The wind and sun aren't always there, though, and at those times the data center still runs on the local grid.",
   },
 };

@@ -68,10 +68,14 @@ export default function PowerStep({ inputs, set, result, byCooling }: StepProps)
               selected={inputs.powerSource === p}
               onSelect={() => set("powerSource", p)}
               title={POWER_COPY[p].title}
-              footer={<ShareLine source={p} />}
+              subtitle={POWER_COPY[p].analogy}
             >
-              {POWER_COPY[p].body}
-              {p === "grid" && <> Here, that&apos;s mostly {mix}.</>}
+              {inputs.powerSource === p && (
+                <>
+                  {POWER_COPY[p].body}
+                  {p === "grid" && <> Here, that&apos;s mostly {mix}.</>}
+                </>
+              )}
             </ChoiceCard>
           ))}
         </div>
@@ -127,6 +131,9 @@ export default function PowerStep({ inputs, set, result, byCooling }: StepProps)
               </>
             )}
           </Fact>
+          <div className="border-t border-emerald-700/15 pt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400" aria-live="polite">
+            <ShareLine source={inputs.powerSource} />
+          </div>
           <Explainer title="How is the pollution measured?">
             In tons of &ldquo;CO₂-equivalent&rdquo;: carbon dioxide plus other heat-trapping gases
             like methane, converted to the amount of carbon dioxide that would warm the planet the
