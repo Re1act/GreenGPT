@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HomeMapPreview from "@/components/map/HomeMapPreview";
 
 const TOOLS = [
   { href: "/simulate", number: "01", title: "Explore the tradeoffs", name: "Simulator", body: "Build a hypothetical data center. Change its location, size, cooling, and power source to explore estimates of water use, electricity demand, and emissions.", action: "Try the simulator" },
@@ -9,16 +10,16 @@ const TOOLS = [
 export default function Home() {
   return (
     <main className="home-page">
-      <section className="home-hero" aria-labelledby="home-title">
+      <section className="home-hero grid items-center gap-8 md:grid-cols-2 lg:gap-12" aria-labelledby="home-title">
         <div className="relative z-10 max-w-2xl">
-          <h1 id="home-title" className="text-4xl font-semibold leading-[1.08] tracking-tight text-[#174b50] sm:text-6xl">Understand the water<br className="hidden sm:block" /> behind AI.</h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-[#4c696b] sm:text-lg">Digital technology has a physical footprint. Explore how data center cooling and energy choices affect water use—and what those choices mean for communities.</p>
+          <h1 id="home-title" className="text-4xl font-semibold leading-[1.08] tracking-tight text-[#174b50] lg:text-5xl xl:text-6xl">Understand the water<br className="hidden sm:block" /> behind AI.</h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-[#4c696b] lg:text-lg">Digital technology has a physical footprint. Explore how data center cooling and energy choices affect water use—and what those choices mean for communities.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/simulate" className="rounded-full bg-[#236973] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#174b50]">Explore the simulator <span aria-hidden="true">↗</span></Link>
-            <Link href="/map" className="rounded-full border border-[#9abbb9] bg-white/50 px-6 py-3 text-sm font-semibold text-[#174b50] hover:bg-white">Find a place on the map</Link>
+            <Link href="/brief" className="rounded-full border border-[#9abbb9] bg-white/50 px-6 py-3 text-sm font-semibold text-[#174b50] hover:bg-white">View your local brief</Link>
           </div>
         </div>
-        <div className="water-art" aria-hidden="true"><div className="water-ring ring-one"/><div className="water-ring ring-two"/><div className="water-ring ring-three"/><div className="water-drop"/></div>
+        <HomeMapPreview />
       </section>
       <section aria-labelledby="tools-title" className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16">
         <div className="mb-7 flex flex-wrap items-end justify-between gap-3"><div><h2 id="tools-title" className=" text-2xl font-semibold tracking-tight text-[#174b50]">Three ways to explore</h2></div><p className="max-w-sm text-sm leading-6 text-[#526968]">Start with a question. Follow it from an estimate to a place to a local decision.</p></div>
