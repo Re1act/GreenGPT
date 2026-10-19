@@ -3,7 +3,7 @@ import Link from "next/link";
 const TOOLS = [
   { href: "/simulate", number: "01", title: "Explore the tradeoffs", name: "Simulator", body: "Build a hypothetical data center. Change its location, size, cooling, and power source to explore estimates of water use, electricity demand, and emissions.", action: "Try the simulator" },
   { href: "/map", number: "02", title: "See where it happens", name: "Map", body: "Explore facility locations and project status. Search for a city or postal code, zoom into your community, and select a facility to learn more.", action: "Explore the map" },
-  { href: "/brief", number: "03", title: "Connect with your community", name: "Local brief", body: "A planned guide to nearby projects, local decisions, and opportunities to take part. See what’s coming as we build this tool.", action: "About local briefs", soon: true },
+  { href: "/brief", number: "03", title: "Connect with your community", name: "Local brief", body: "Find nearby projects, explore sourced civic information, and draft a comment in your own words. Coverage varies by location.", action: "Build your local brief" },
 ];
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
         <div className="mb-7 flex flex-wrap items-end justify-between gap-3"><div><p className="home-eyebrow">A clearer picture, one step at a time</p><h2 id="tools-title" className="mt-2 text-2xl font-semibold tracking-tight text-[#174b50]">Three ways to explore</h2></div><p className="max-w-sm text-sm leading-6 text-[#526968]">Start with a question. Follow it from an estimate to a place to a local decision.</p></div>
         <div className="grid gap-5 md:grid-cols-3">
           {TOOLS.map(tool => <Link href={tool.href} key={tool.href} className="tool-card group flex flex-col rounded-2xl border border-[#d4e1db] bg-[#fffefa] p-6 transition hover:-translate-y-1 hover:border-[#82aaa8] hover:shadow-lg">
-            <div className="flex items-center justify-between"><span className="text-sm font-medium text-[#628b89]">{tool.number} / {tool.name}</span>{tool.soon && <span className="rounded-full bg-[#f0eadb] px-2.5 py-1 text-[11px] font-medium text-[#77613e]">Coming soon</span>}</div>
+            <div className="flex items-center justify-between"><span className="text-sm font-medium text-[#628b89]">{tool.number} / {tool.name}</span></div>
             <h3 className="mt-6 text-xl font-semibold tracking-tight text-[#174b50]">{tool.title}</h3><p className="mb-8 mt-3 text-sm leading-6 text-[#526968]">{tool.body}</p><span className="mt-auto flex items-center justify-between border-t border-[#e0e8df] pt-4 text-sm font-semibold text-[#236973]">{tool.action}<span aria-hidden="true">↗</span></span>
           </Link>)}
         </div>

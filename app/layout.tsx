@@ -30,11 +30,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full overflow-hidden antialiased`}
     >
       {/* Fixed-height shell: the map page fills the space under the nav, while
           longer pages (simulator, brief) scroll inside the content area. */}
-      <body className="flex h-full flex-col">
+      <body className="fixed inset-0 flex flex-col overflow-hidden">
         <SiteNav />
         <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
       </body>
