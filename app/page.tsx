@@ -13,9 +13,9 @@ export default function Home() {
       <section className="home-hero grid items-center gap-8 md:grid-cols-2 lg:gap-12" aria-labelledby="home-title">
         <div className="relative z-10 max-w-2xl">
           <h1 id="home-title" className="text-4xl font-semibold leading-[1.08] tracking-tight text-[#174b50] lg:text-5xl xl:text-6xl">Understand the water<br className="hidden sm:block" /> behind AI.</h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-[#4c696b] lg:text-lg">Digital technology has a physical footprint. Explore how data center cooling and energy choices affect water use—and what those choices mean for communities.</p>
+          <p className="mt-6 max-w-xl text-base leading-7 text-[#4c696b] lg:text-lg">Explore how the location, power source, and cooling system of a data center affect its water and electricity use. Discover the tradeoffs, find projects near you, and learn how you can take part in decisions that affect your community.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/simulate" className="rounded-full bg-[#236973] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#174b50]">Explore the simulator <span aria-hidden="true">↗</span></Link>
+            <Link href="/simulate" className="rounded-full bg-[#236973] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#174b50]">Explore the simulator</Link>
             <Link href="/brief" className="rounded-full border border-[#9abbb9] bg-white/50 px-6 py-3 text-sm font-semibold text-[#174b50] hover:bg-white">View your local brief</Link>
           </div>
         </div>
