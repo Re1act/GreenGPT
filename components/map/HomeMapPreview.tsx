@@ -69,7 +69,7 @@ export default function HomeMapPreview() {
   }, [router]);
 
   return <div className="relative min-w-0 overflow-hidden rounded-2xl border border-[#9abbb9] bg-[#e0eff0] shadow-lg shadow-[#174b50]/10">
-    <div ref={container} role="region" aria-label="Interactive preview of U.S. data centers. Drag to pan; select a location to open the full map." className="h-[300px] w-full sm:h-[340px] lg:h-[360px]" />
+    <div ref={container} role="region" aria-label="Interactive preview of U.S. data centers. Drag to pan; select a location to open the full map." className="h-[18.75rem] w-full sm:h-[21.25rem] lg:h-[22.5rem]" />
     <span className="pointer-events-none absolute left-3 top-3 rounded-lg bg-[#fffefa]/95 px-3 py-2 text-xs font-semibold text-[#174b50] shadow-sm">U.S. data centers</span>
     <Link href="/map" aria-label="Open full data center map" title="Open full map" className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-lg border border-[#b3ccca] bg-[#fffefa] text-[#174b50] shadow-sm transition hover:bg-[#dceee9]">
       <svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg>

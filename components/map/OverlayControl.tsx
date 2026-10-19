@@ -57,7 +57,7 @@ function OverlayLegend({ overlay }: { overlay: OverlayKey }) {
         <Swatch color={SEQ_600} label="High" />
         <Swatch color={SEQ_700} label="Extremely high" />
         <Swatch color={MUTED_GRAY} label="Arid / not scored" />
-        <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-400">
+        <p className="mt-1 text-[0.6875rem] text-zinc-500 dark:text-zinc-400">
           WRI Aqueduct baseline water stress, by basin.
         </p>
       </div>
@@ -73,7 +73,7 @@ function OverlayLegend({ overlay }: { overlay: OverlayKey }) {
         <Swatch color={DROUGHT_COLORS.D2} label="D2 — Severe" />
         <Swatch color={DROUGHT_COLORS.D3} label="D3 — Extreme" />
         <Swatch color={DROUGHT_COLORS.D4} label="D4 — Exceptional" />
-        <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-400">
+        <p className="mt-1 text-[0.6875rem] text-zinc-500 dark:text-zinc-400">
           US Drought Monitor, weekly, by county.
         </p>
       </div>
@@ -88,7 +88,7 @@ function OverlayLegend({ overlay }: { overlay: OverlayKey }) {
         <Swatch color={SEQ_450} label="~1,000" />
         <Swatch color={SEQ_600} label="~1,400" />
         <Swatch color={SEQ_700} label="~1,800+" />
-        <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-400">
+        <p className="mt-1 text-[0.6875rem] text-zinc-500 dark:text-zinc-400">
           EPA eGRID subregion CO₂e output emission rate.
         </p>
       </div>
@@ -100,7 +100,7 @@ function OverlayLegend({ overlay }: { overlay: OverlayKey }) {
       <Swatch color={DIVERGING_BLUE} label="Price fell since 2020" />
       <Swatch color={DIVERGING_MIDPOINT} label="~Unchanged" />
       <Swatch color={DIVERGING_RED} label="Price rose since 2020" />
-      <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-400">
+      <p className="mt-1 text-[0.6875rem] text-zinc-500 dark:text-zinc-400">
         Darker = larger change. EIA Form 861, residential, by state.
       </p>
     </div>

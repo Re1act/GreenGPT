@@ -43,6 +43,8 @@ export default function RegionPicker({
       minZoom: 2,
       maxZoom: 11,
     });
+    const resizeObserver = new ResizeObserver(() => map.resize());
+    resizeObserver.observe(containerRef.current);
     mapRef.current = map;
     map.addControl(new NavigationControl({ showCompass: false }), "bottom-right");
     map.getCanvas().style.cursor = "crosshair";
@@ -53,6 +55,7 @@ export default function RegionPicker({
     return () => {
       markerRef.current?.remove();
       markerRef.current = null;
+      resizeObserver.disconnect();
       map.remove();
       mapRef.current = null;
     };

@@ -1,0 +1,23 @@
+/* Shared responsive sizing: rem-based UI grows without scaling the canvas or
+   restricting the user's own browser zoom. Compact screens use a gentler step. */
+html { font-size: 106.25%; }
+@media (min-width: 640px) { html { font-size: 112.5%; } }
+@media (min-width: 1024px) { html { font-size: 125%; } }
+
+.home-hero { padding: 3.6rem max(1.25rem, calc((100vw - 76rem) / 2)); }
+.home-eyebrow { font-size: .6875rem; }
+html .maplibregl-ctrl-group button { width: 2rem; height: 2rem; }
+html .maplibregl-ctrl-group button .maplibregl-ctrl-icon { background-size: 1.8rem 1.8rem; }
+html .maplibregl-ctrl-attrib { font-size: .6875rem; line-height: 1.25rem; }
+html .maplibregl-popup { max-width: min(18.75rem, calc(100vw - 2rem)) !important; }
+html .maplibregl-popup-content { padding: .75rem; border-radius: .5rem; }
+html .maplibregl-popup-close-button { font-size: 1.25rem; min-width: 1.5rem; min-height: 1.5rem; }
+.sited-popup { font-size: .8125rem; }
+.sited-popup-title { font-size: .875rem; padding-right: 1rem; }
+.sited-popup-row { gap: .75rem; padding: .0625rem 0; flex-wrap: wrap; }
+.sited-popup-note { margin: .5rem 0 0; padding: .375rem .5rem; font-size: .75rem; }
+.sited-popup-simulate { margin-top: .5rem; font-size: .75rem; }
+.sited-popup-source { margin-top: .5rem; padding-top: .375rem; font-size: .6875rem; overflow-wrap: anywhere; }
+@media (max-width: 639px) {
+  .home-hero { padding-block: 2rem; }
+}

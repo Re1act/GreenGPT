@@ -121,3 +121,4 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 @media(max-width: 1000px) { .water-art { right: -200px; opacity: .25; } }
 @media(max-width: 640px) { .home-hero { padding-top: 45px; padding-bottom: 45px; } .water-art { right: -290px; } }
 @media(prefers-reduced-motion: reduce) { .tool-card { transition: none; } .tool-card:hover { transform: none; } }
+

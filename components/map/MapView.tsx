@@ -49,6 +49,8 @@ export default function MapView() {
       minZoom: 2.5,
       maxZoom: 12,
     });
+    const resizeObserver = new ResizeObserver(() => map.resize());
+    resizeObserver.observe(containerRef.current);
     mapRef.current = map;
     map.addControl(new NavigationControl({ showCompass: false }), "top-right");
 
@@ -150,6 +152,16 @@ export default function MapView() {
             .addTo(map);
         });
 
+        const requested = new URLSearchParams(window.location.search).get("facility");
+        const selected = facilities.features.find(f => requested && String(f.properties?.id) === requested && f.geometry.type === "Point");
+        if (selected && selected.geometry.type === "Point") {
+          const coords = selected.geometry.coordinates.slice() as [number, number];
+          map.jumpTo({ center: coords, zoom: 11 });
+          popupRef.current = new Popup({ closeButton: true, maxWidth: "300px" })
+            .setLngLat(coords)
+            .setHTML(buildFacilityPopupHtml(selected.properties as unknown as FacilityProperties, coords))
+            .addTo(map);
+        }
         setStatus("ready");
       } catch {
         if (!cancelled) setStatus("error");
@@ -159,6 +171,7 @@ export default function MapView() {
     return () => {
       cancelled = true;
       popupRef.current?.remove();
+      resizeObserver.disconnect();
       map.remove();
       mapRef.current = null;
     };

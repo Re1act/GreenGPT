@@ -11,11 +11,11 @@ const LOC = COEFFICIENTS.contextStats.location;
 
 function PlaceFacts({ lookup }: { lookup: RegionLookup }) {
   if (lookup.status === "loading") {
-    return <p className="text-[13px] leading-5 text-zinc-500 dark:text-zinc-400">Looking up this spot…</p>;
+    return <p className="text-[0.8125rem] leading-5 text-zinc-500 dark:text-zinc-400">Looking up this spot…</p>;
   }
   if (lookup.status === "error" || !lookup.context) {
     return (
-      <p className="text-[13px] leading-5 text-zinc-600 dark:text-zinc-400">
+      <p className="text-[0.8125rem] leading-5 text-zinc-600 dark:text-zinc-400">
         We couldn&apos;t look up details for this spot, so the simulator will use U.S. averages
         for its power grid. You can still continue.
       </p>
@@ -30,7 +30,7 @@ function PlaceFacts({ lookup }: { lookup: RegionLookup }) {
   const code = ctx.egrid[0]?.subregion_code ?? null;
 
   return (
-    <dl className="flex flex-col gap-2 text-[13px] leading-5">
+    <dl className="flex flex-col gap-2 text-[0.8125rem] leading-5">
       <div>
         <dt className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Water</dt>
         <dd className="text-zinc-800 dark:text-zinc-200">
@@ -95,16 +95,16 @@ export default function LocationStep({
     <div className="relative h-full min-h-0 overflow-hidden">
       <RegionPicker point={point} onPick={onPick} />
 
-      <div className="pointer-events-none absolute inset-x-3 bottom-10 top-3 flex items-start sm:inset-x-auto sm:bottom-4 sm:left-4 sm:top-4 sm:w-96">
-        <div className="pointer-events-auto flex max-h-full w-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white/95 p-4 shadow-xl backdrop-blur dark:border-white/10 dark:bg-zinc-900/95">
+      <div className="pointer-events-none absolute inset-x-3 bottom-10 top-3 flex items-start sm:inset-x-auto sm:bottom-4 sm:left-4 sm:top-4 sm:w-96 sm:max-w-[55%]">
+        <div className="pointer-events-auto flex max-h-[65%] sm:max-h-full w-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white/95 p-4 shadow-xl backdrop-blur dark:border-white/10 dark:bg-zinc-900/95">
           <div className="shrink-0">
-          <div className="text-[11px] font-medium uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
+          <div className="text-[0.6875rem] font-medium uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
             Step 1 of 6
           </div>
           <h1 className="mt-1 text-lg leading-snug font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
             Where would you build a data center?
           </h1>
-          <p className="mt-2 text-[13px] leading-5 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-2 text-[0.8125rem] leading-5 text-zinc-600 dark:text-zinc-400">
             {facilityName ? (
               <>
                 We&apos;ve placed you at <strong>{facilityName}</strong>, a real project from the
@@ -120,7 +120,7 @@ export default function LocationStep({
 
           {point && (
             <div className="mt-3 border-t border-black/10 pt-3 dark:border-white/10">
-              <p className="text-[10px] font-medium uppercase tracking-wide text-zinc-500">Selected location</p>
+              <p className="text-[0.625rem] font-medium uppercase tracking-wide text-zinc-500">Selected location</p>
               <p className="mt-1 text-sm font-semibold leading-5 text-zinc-900 dark:text-zinc-50" aria-live="polite">
                 {placeName(lookup.context, point)}
               </p>
@@ -131,7 +131,7 @@ export default function LocationStep({
             type="button"
             onClick={onContinue}
             disabled={!canContinue}
-            className="mt-3 w-full rounded-lg bg-emerald-700 px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-zinc-300 disabled:text-zinc-500 dark:disabled:bg-zinc-700 dark:disabled:text-zinc-400"
+            className="mt-3 w-full rounded-lg bg-emerald-700 px-4 py-2 text-[0.8125rem] font-semibold text-white transition-colors hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-zinc-300 disabled:text-zinc-500 dark:disabled:bg-zinc-700 dark:disabled:text-zinc-400"
           >
             {point ? (lookup.status === "loading" ? "Looking up location…" : "Build here →") : "Pick a spot on the map first"}
           </button>
@@ -139,7 +139,7 @@ export default function LocationStep({
 
           <div className="mt-3 min-h-0 overflow-y-auto overscroll-contain pr-1" role="region" aria-label="Location context" tabIndex={0}>
           {point && <div className="border-t border-black/10 pt-3"><PlaceFacts lookup={lookup} /></div>}
-          <div className="mt-3 [&>div]:p-2.5 [&>div]:text-[12px] [&>div]:leading-5 [&>div>div:first-child]:text-[11px]">
+          <div className="mt-3 [&>div]:p-2.5 [&>div]:text-[0.75rem] [&>div]:leading-5 [&>div>div:first-child]:text-[0.6875rem]">
             <HowCommon
               title="Where data centers are going"
               source="The Guardian (2026); Lawrence Berkeley National Laboratory (2024)"
@@ -151,7 +151,7 @@ export default function LocationStep({
             </HowCommon>
           </div>
 
-          <p className="mt-3 text-[11px] leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <p className="mt-3 text-[0.6875rem] leading-relaxed text-zinc-500 dark:text-zinc-400">
             This is a model of a made-up building, not a measurement of any real one.
           </p>
           </div>

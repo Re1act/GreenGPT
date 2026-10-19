@@ -104,7 +104,7 @@ export default function ZipSearch({ onLocate }: {
         className="mt-2 text-left text-xs text-zinc-600 underline underline-offset-2 dark:text-zinc-300">
         {kind === "postcode" ? "Search by city instead" : "Search by postal code instead"}
       </button>
-      <p className="mt-2 text-[10px] text-zinc-500 dark:text-zinc-400">
+      <p className="mt-2 text-[0.625rem] text-zinc-500 dark:text-zinc-400">
         Search: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer" className="underline">© OpenStreetMap</a>
       </p>
     </form>

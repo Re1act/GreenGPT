@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
 import "./globals.css";
+import "./sizing.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,13 +31,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full overflow-hidden antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full overflow-clip antialiased`}
     >
       {/* Fixed-height shell: the map page fills the space under the nav, while
           longer pages (simulator, brief) scroll inside the content area. */}
-      <body className="fixed inset-0 flex flex-col overflow-hidden">
+      <body className="fixed inset-0 flex flex-col overflow-clip">
         <SiteNav />
-        <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
+        <div className="min-h-0 flex-1 overflow-y-auto scroll-smooth motion-reduce:scroll-auto">{children}</div>
       </body>
     </html>
   );

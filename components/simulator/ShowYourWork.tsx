@@ -55,7 +55,7 @@ function Step({
   return (
     <div className="rounded-md border border-black/10 p-3 dark:border-white/10">
       <code className="block font-mono text-xs font-semibold text-zinc-900 dark:text-zinc-100">{formula}</code>
-      <div className="mt-2 grid gap-1 font-mono text-[11px] text-zinc-600 dark:text-zinc-400">
+      <div className="mt-2 grid gap-1 font-mono text-[0.6875rem] text-zinc-600 dark:text-zinc-400">
         <div>
           <span className="inline-block w-10 text-zinc-400 dark:text-zinc-500">low</span>
           {low}
@@ -65,7 +65,7 @@ function Step({
           {high}
         </div>
       </div>
-      {note && <p className="mt-2 text-[11px] leading-relaxed text-zinc-500 dark:text-zinc-400">{note}</p>}
+      {note && <p className="mt-2 text-[0.6875rem] leading-relaxed text-zinc-500 dark:text-zinc-400">{note}</p>}
     </div>
   );
 }

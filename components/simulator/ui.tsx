@@ -64,7 +64,7 @@ export function ChoiceCard({
           {tags.map((t) => (
             <span
               key={t}
-              className="rounded-full bg-zinc-100 px-2 py-0.5 text-[11px] text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+              className="rounded-full bg-zinc-100 px-2 py-0.5 text-[0.6875rem] text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
             >
               {t}
             </span>
@@ -129,7 +129,7 @@ export function HowCommon({
         {title}
       </div>
       <div className="mt-1">{children}</div>
-      <div className="mt-1.5 text-[11px] text-zinc-500 dark:text-zinc-400">Source: {source}</div>
+      <div className="mt-1.5 text-[0.6875rem] text-zinc-500 dark:text-zinc-400">Source: {source}</div>
     </div>
   );
 }

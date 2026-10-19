@@ -24,7 +24,7 @@ export default function MapPage() {
             footnote: this map cannot and does not claim to trace any request to
             a facility. Inference routing is dynamic and undisclosed by every
             provider -- any tool claiming otherwise is fabricating. */}
-        <p className="max-w-md text-right text-[11px] leading-tight text-zinc-500 dark:text-zinc-400">
+        <p className="max-w-md text-right text-[0.6875rem] leading-tight text-zinc-500 dark:text-zinc-400">
           This map shows where facilities are being built — it cannot and does not show which
           facility served any specific request.
         </p>
