@@ -1,0 +1,1460 @@
+{
+  "_readme": "Curated directory for the Local Brief. Edit entries here, then load them with: node --env-file=.env.local scripts/ingest/organizations.mjs. Nothing appears on the site until its \"verified\" is true. Keep descriptions neutral and factual; put a group's own stance in stated_position, quoted or closely paraphrased from its own materials, or null if it has none. county_fips: null = statewide, or a list of 5-digit county codes. kind: ratepayer_advocate | utility_commission | local_government | community_group | environmental_group | civic_group | industry_group | other.",
+  "organizations": [
+    {
+      "name": "Alaska Department of Law, Regulatory Affairs & Public Advocacy",
+      "kind": "ratepayer_advocate",
+      "website": "https://law.alaska.gov/department/civil/civil.html",
+      "description": "Alaska's public advocate in utility cases before the Regulatory Commission of Alaska, part of the Department of Law's Civil Division.",
+      "stated_position": null,
+      "states": [
+        "AK"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Regulatory Commission of Alaska",
+      "kind": "utility_commission",
+      "website": "https://rca.alaska.gov/",
+      "description": "Alaska's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "AK"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000005F4",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Alabama Attorney General's Office",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.alabamaag.gov/",
+      "description": "Alabama's member of NASUCA, the national association of offices that represent utility customers in rate cases.",
+      "stated_position": null,
+      "states": [
+        "AL"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Alabama Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.alabama.gov/",
+      "description": "Alabama's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "AL"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000001",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Arkansas Attorney General's Office",
+      "kind": "ratepayer_advocate",
+      "website": "https://arkansasag.gov/",
+      "description": "Arkansas's member of NASUCA, the national association of offices that represent utility customers in rate cases.",
+      "stated_position": null,
+      "states": [
+        "AR"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Arkansas Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://apsc.arkansas.gov/",
+      "description": "Arkansas's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "AR"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000057",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Residential Utility Consumer Office (RUCO)",
+      "kind": "ratepayer_advocate",
+      "website": "https://ruco.az.gov/",
+      "description": "Arizona's state office that represents residential utility customers in rate cases before the Arizona Corporation Commission.",
+      "stated_position": null,
+      "states": [
+        "AZ"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Arizona Corporation Commission",
+      "kind": "utility_commission",
+      "website": "https://www.azcc.gov/",
+      "description": "Arizona's elected utility regulator. It sets rates for the state's investor-owned utilities, such as APS and TEP, through rate cases that take public comment. It does not set rates for Salt River Project (SRP), which serves much of the Phoenix area and sets its own rates through its elected board.",
+      "stated_position": null,
+      "states": [
+        "AZ"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000041",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Advocates Office",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.publicadvocates.cpuc.ca.gov/",
+      "description": "The independent consumer advocate inside the California Public Utilities Commission. It represents utility customers in rate cases and other commission proceedings.",
+      "stated_position": null,
+      "states": [
+        "CA"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "California Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://www.cpuc.ca.gov/",
+      "description": "California's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "CA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000000BF",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Colorado Office of the Utility Consumer Advocate",
+      "kind": "ratepayer_advocate",
+      "website": "https://uca.colorado.gov/",
+      "description": "State office that represents residential, small business and farm utility customers in cases before the Colorado Public Utilities Commission.",
+      "stated_position": null,
+      "states": [
+        "CO"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Colorado Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://puc.colorado.gov/",
+      "description": "Colorado's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "CO"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000000D5",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Connecticut Office of Consumer Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://portal.ct.gov/OCC",
+      "description": "State office that represents Connecticut utility customers in cases before the Public Utilities Regulatory Authority (PURA).",
+      "stated_position": null,
+      "states": [
+        "CT"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Connecticut Public Utilities Regulatory Authority",
+      "kind": "utility_commission",
+      "website": "https://portal.ct.gov/pura",
+      "description": "Connecticut's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "CT"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000000EB",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Office of the People's Counsel for the District of Columbia",
+      "kind": "ratepayer_advocate",
+      "website": "https://opc-dc.gov/",
+      "description": "Represents District utility customers in cases before the DC Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "DC"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Service Commission of the District of Columbia",
+      "kind": "utility_commission",
+      "website": "https://dcpsc.org/",
+      "description": "The District of Columbia's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "DC"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000117",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Delaware Division of the Public Advocate",
+      "kind": "ratepayer_advocate",
+      "website": "https://publicadvocate.delaware.gov/",
+      "description": "State office that represents residential and small business utility customers before the Delaware Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "DE"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Delaware Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://depsc.delaware.gov/",
+      "description": "Delaware's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "DE"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000101",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Florida Office of Public Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.floridaopc.gov/",
+      "description": "An office of the Florida Legislature that represents utility customers in cases before the Florida Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "FL"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Florida Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://www.psc.state.fl.us/",
+      "description": "Florida's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "FL"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000185",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Georgia Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.ga.gov/",
+      "description": "Georgia's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "GA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000019B",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Hawaii Division of Consumer Advocacy",
+      "kind": "ratepayer_advocate",
+      "website": "https://cca.hawaii.gov/dca/",
+      "description": "State division, in the Department of Commerce and Consumer Affairs, that represents utility customers before the Hawaii Public Utilities Commission.",
+      "stated_position": null,
+      "states": [
+        "HI"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Hawaii Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://puc.hawaii.gov/",
+      "description": "Hawaii's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "HI"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=11BFA70000006F",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Iowa Office of Consumer Advocate",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.iowaattorneygeneral.gov/for-consumers/office-of-consumer-advocate-utilities/",
+      "description": "Represents Iowa utility customers before the Iowa Utilities Commission. It is part of the Iowa Attorney General's office.",
+      "stated_position": null,
+      "states": [
+        "IA"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Iowa Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://iuc.iowa.gov/",
+      "description": "Iowa's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "IA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000234",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Idaho Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://puc.idaho.gov/",
+      "description": "Idaho's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "ID"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000001DD",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Citizens Utility Board",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.citizensutilityboard.org/",
+      "description": "Nonprofit created by Illinois law in 1983 to represent residential and small business utility customers in rate cases and other proceedings.",
+      "stated_position": null,
+      "states": [
+        "IL"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Illinois Attorney General, Public Utilities Bureau",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.illinoisattorneygeneral.gov/",
+      "description": "Represents Illinois utility customers in cases before the Illinois Commerce Commission.",
+      "stated_position": null,
+      "states": [
+        "IL"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Illinois Commerce Commission",
+      "kind": "utility_commission",
+      "website": "https://www.icc.illinois.gov/",
+      "description": "Illinois's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "IL"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000001F3",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Indiana Office of Utility Consumer Counselor",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.in.gov/oucc/",
+      "description": "State agency that represents Indiana utility customers in cases before the Indiana Utility Regulatory Commission.",
+      "stated_position": null,
+      "states": [
+        "IN"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Indiana Utility Regulatory Commission",
+      "kind": "utility_commission",
+      "website": "https://www.in.gov/iurc/",
+      "description": "Indiana's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "IN"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000021E",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Citizens' Utility Ratepayer Board (CURB)",
+      "kind": "ratepayer_advocate",
+      "website": "https://curb.kansas.gov/",
+      "description": "Independent state agency that represents residential and small business utility customers before the Kansas Corporation Commission.",
+      "stated_position": null,
+      "states": [
+        "KS"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Kansas Corporation Commission",
+      "kind": "utility_commission",
+      "website": "https://www.kcc.ks.gov/",
+      "description": "Kansas's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "KS"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000260",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Kentucky Attorney General, Office of Rate Intervention",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.ag.ky.gov/",
+      "description": "Represents Kentucky utility customers in cases before the Kentucky Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "KY"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Kentucky Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.ky.gov/",
+      "description": "Kentucky's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "KY"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000276",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Louisiana Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://lpsc.louisiana.gov/",
+      "description": "Louisiana's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "LA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000002A0",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Massachusetts Attorney General, Energy and Ratepayer Advocacy Division",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.mass.gov/orgs/office-of-the-attorney-general",
+      "description": "Represents customers of Massachusetts electric, gas and water companies in cases before the Department of Public Utilities.",
+      "stated_position": null,
+      "states": [
+        "MA"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Massachusetts Department of Public Utilities",
+      "kind": "utility_commission",
+      "website": "https://www.mass.gov/orgs/department-of-public-utilities",
+      "description": "Massachusetts's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "MA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000002F8",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Maryland Office of People's Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://opc.maryland.gov/",
+      "description": "State agency that represents residential utility customers before the Maryland Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "MD"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Maryland Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.maryland.gov/",
+      "description": "Maryland's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "MD"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000200",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Maine Office of the Public Advocate",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.maine.gov/meopa/",
+      "description": "State office that represents Maine utility customers before the Maine Public Utilities Commission.",
+      "stated_position": null,
+      "states": [
+        "ME"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Maine Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://www.maine.gov/mpuc/",
+      "description": "Maine's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "ME"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000002B6",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Michigan Attorney General, Utility Consumer Advocacy",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.michigan.gov/ag/",
+      "description": "Represents Michigan utility customers in cases before the Michigan Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "MI"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Michigan Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://www.michigan.gov/mpsc",
+      "description": "Michigan's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "MI"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000030E",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Minnesota Attorney General, Residential Utilities Division",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.ag.state.mn.us/",
+      "description": "Represents residential and small business utility customers before the Minnesota Public Utilities Commission.",
+      "stated_position": null,
+      "states": [
+        "MN"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Minnesota Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://mn.gov/puc/",
+      "description": "Minnesota's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "MN"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000337",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Missouri Office of the Public Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://opc.mo.gov/",
+      "description": "State office that represents Missouri utility customers before the Missouri Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "MO"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Missouri Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.mo.gov/",
+      "description": "Missouri's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "MO"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000363",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Mississippi Public Utilities Staff",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.mpus.ms.gov/",
+      "description": "Independent state agency that reviews utility filings and represents the public interest in cases before the Mississippi Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "MS"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.mpus.ms.gov/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Mississippi Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://www.psc.ms.gov/",
+      "description": "Mississippi's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "MS"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000034D",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Montana Consumer Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.legmt.gov/occ/",
+      "description": "Office set up by the Montana Constitution to represent customers of regulated utilities before the Montana Public Service Commission. It does not cover electric cooperatives.",
+      "stated_position": null,
+      "states": [
+        "MT"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.legmt.gov/occ/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Montana Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.mt.gov/",
+      "description": "Montana's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "MT"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000379",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Staff, North Carolina Utilities Commission",
+      "kind": "ratepayer_advocate",
+      "website": "https://publicstaff.nc.gov/",
+      "description": "Independent state agency that represents utility customers in cases before the North Carolina Utilities Commission.",
+      "stated_position": null,
+      "states": [
+        "NC"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "North Carolina Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://www.ncuc.gov/",
+      "description": "North Carolina's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "NC"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000004C2",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "North Dakota Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://www.psc.nd.gov/",
+      "description": "North Dakota's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "ND"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000004D8",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Nebraska Power Review Board",
+      "kind": "utility_commission",
+      "website": "https://powerreview.nebraska.gov/",
+      "description": "Nebraska is the only state served entirely by public power: each utility's own board, not a state commission, sets electric rates. The Power Review Board approves new power plants and transmission lines and settles disputes over which utility serves an area. To weigh in on rates, contact your public power district or city utility.",
+      "stated_position": null,
+      "states": [
+        "NE"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000003D1",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "New Hampshire Office of the Consumer Advocate",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.oca.nh.gov/",
+      "description": "State office that represents residential utility customers before the New Hampshire Public Utilities Commission.",
+      "stated_position": null,
+      "states": [
+        "NH"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "New Hampshire Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://www.puc.nh.gov/",
+      "description": "New Hampshire's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "NH"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000429",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "New Jersey Division of Rate Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.nj.gov/rpa/",
+      "description": "State agency that represents utility customers in cases before the New Jersey Board of Public Utilities.",
+      "stated_position": null,
+      "states": [
+        "NJ"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "New Jersey Board of Public Utilities",
+      "kind": "utility_commission",
+      "website": "https://www.nj.gov/bpu/",
+      "description": "New Jersey's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "NJ"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000043F",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "New Mexico Department of Justice",
+      "kind": "ratepayer_advocate",
+      "website": "https://nmdoj.gov/",
+      "description": "New Mexico's member of NASUCA, the national association of offices that represent utility customers in rate cases. Formerly the Attorney General's Office.",
+      "stated_position": null,
+      "states": [
+        "NM"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "New Mexico Public Regulation Commission",
+      "kind": "utility_commission",
+      "website": "https://www.prc.nm.gov/",
+      "description": "New Mexico's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "NM"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000455",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Nevada Attorney General, Bureau of Consumer Protection",
+      "kind": "ratepayer_advocate",
+      "website": "https://ag.nv.gov/About/Consumer_Protection/Bureau_of_Consumer_Protection/",
+      "description": "Represents Nevada utility customers in cases before the Public Utilities Commission of Nevada.",
+      "stated_position": null,
+      "states": [
+        "NV"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Utilities Commission of Nevada",
+      "kind": "utility_commission",
+      "website": "https://puc.nv.gov/",
+      "description": "Nevada's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "NV"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000003FD",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Utility Intervention Unit",
+      "kind": "ratepayer_advocate",
+      "website": "https://dos.ny.gov/utility-intervention-unit-1",
+      "description": "Part of the New York Department of State's Division of Consumer Protection. It represents residential and small business customers before the New York Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "NY"
+      ],
+      "county_fips": null,
+      "source_url": "https://dos.ny.gov/utility-intervention-unit-1",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "New York State Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://dps.ny.gov/",
+      "description": "New York's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "NY"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000497",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Office of the Ohio Consumers' Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.occ.ohio.gov/",
+      "description": "State agency that represents Ohio's residential utility customers before the Public Utilities Commission of Ohio.",
+      "stated_position": null,
+      "states": [
+        "OH"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Utilities Commission of Ohio",
+      "kind": "utility_commission",
+      "website": "https://puco.ohio.gov/",
+      "description": "Ohio's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "OH"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000005C8",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Oklahoma Attorney General, Utility Regulation Unit",
+      "kind": "ratepayer_advocate",
+      "website": "https://oklahoma.gov/oag.html",
+      "description": "Represents Oklahoma utility customers in cases before the Oklahoma Corporation Commission.",
+      "stated_position": null,
+      "states": [
+        "OK"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Oklahoma Corporation Commission",
+      "kind": "utility_commission",
+      "website": "https://oklahoma.gov/occ.html",
+      "description": "Oklahoma's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "OK"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000051A",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Oregon Citizens' Utility Board",
+      "kind": "ratepayer_advocate",
+      "website": "https://oregoncub.org/",
+      "description": "Nonprofit created by Oregon voters in 1984 to represent residential utility customers before the Oregon Public Utility Commission.",
+      "stated_position": null,
+      "states": [
+        "OR"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Oregon Public Utility Commission",
+      "kind": "utility_commission",
+      "website": "https://www.oregon.gov/puc/",
+      "description": "Oregon's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "OR"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000546",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Pennsylvania Office of Consumer Advocate",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.oca.pa.gov/",
+      "description": "State office that represents Pennsylvania utility customers before the Pennsylvania Public Utility Commission.",
+      "stated_position": null,
+      "states": [
+        "PA"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Pennsylvania Public Utility Commission",
+      "kind": "utility_commission",
+      "website": "https://www.puc.pa.gov/",
+      "description": "Pennsylvania's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "PA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000055C",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Puerto Rico Energy Bureau",
+      "kind": "utility_commission",
+      "website": "https://energia.pr.gov/",
+      "description": "Puerto Rico's energy regulator, part of the island's Public Service Regulatory Board. It sets electricity rates and reviews grid and power plant plans, with public comment periods on major cases.",
+      "stated_position": null,
+      "states": [
+        "PR"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=20A8800000006",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Rhode Island Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://ripuc.ri.gov/",
+      "description": "Rhode Island's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "RI"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000061D",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "South Carolina Office of Regulatory Staff",
+      "kind": "ratepayer_advocate",
+      "website": "https://ors.sc.gov/",
+      "description": "State agency that represents the public interest in utility cases before the South Carolina Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "SC"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "South Carolina Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.sc.gov/",
+      "description": "South Carolina's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "SC"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000673",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "South Dakota Public Utilities Commission",
+      "kind": "utility_commission",
+      "website": "https://puc.sd.gov/",
+      "description": "South Dakota's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "SD"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000689",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Tennessee Attorney General, Consumer Advocate Division",
+      "kind": "ratepayer_advocate",
+      "website": "https://tn.gov/attorneygeneral/working-for-tennessee/protecting-utility-customers/ca-faqs/consumer-advocate.html",
+      "description": "Represents customers of investor-owned utilities in cases before the Tennessee Public Utility Commission.",
+      "stated_position": null,
+      "states": [
+        "TN"
+      ],
+      "county_fips": null,
+      "source_url": "https://tn.gov/attorneygeneral/working-for-tennessee/protecting-utility-customers/ca-faqs/consumer-advocate.html",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Tennessee Public Utility Commission",
+      "kind": "utility_commission",
+      "website": "https://www.tn.gov/tpuc.html",
+      "description": "Tennessee's regulator for investor-owned utilities, mainly gas and water companies. Most Tennesseans get electricity from local utilities that buy power from the Tennessee Valley Authority (TVA), and TVA, not this commission, oversees those utilities' rates.",
+      "stated_position": null,
+      "states": [
+        "TN"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000006ED",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Texas Office of Public Utility Counsel",
+      "kind": "ratepayer_advocate",
+      "website": "https://opuc.texas.gov/",
+      "description": "State agency that represents residential and small business customers in cases before the Public Utility Commission of Texas.",
+      "stated_position": null,
+      "states": [
+        "TX"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Utility Commission of Texas",
+      "kind": "utility_commission",
+      "website": "https://www.puc.texas.gov/",
+      "description": "Texas's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "TX"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000719",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Utah Office of Consumer Services",
+      "kind": "ratepayer_advocate",
+      "website": "https://commerce.utah.gov/ocs/",
+      "description": "State office that represents residential, small business and farm utility customers before the Public Service Commission of Utah.",
+      "stated_position": null,
+      "states": [
+        "UT"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Service Commission of Utah",
+      "kind": "utility_commission",
+      "website": "https://psc.utah.gov/",
+      "description": "Utah's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "UT"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000007AF",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Virginia Attorney General, Insurance & Utilities Regulatory Section",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.oag.state.va.us/",
+      "description": "Represents Virginia utility customers in cases before the State Corporation Commission.",
+      "stated_position": null,
+      "states": [
+        "VA"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Virginia State Corporation Commission",
+      "kind": "utility_commission",
+      "website": "https://www.scc.virginia.gov/",
+      "description": "Virginia's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "VA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000007F1",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Vermont Department of Public Service",
+      "kind": "ratepayer_advocate",
+      "website": "https://publicservice.vermont.gov/",
+      "description": "State department that represents the public interest in utility cases before the Vermont Public Utility Commission.",
+      "stated_position": null,
+      "states": [
+        "VT"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Vermont Public Utility Commission",
+      "kind": "utility_commission",
+      "website": "https://puc.vermont.gov/",
+      "description": "Vermont's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "VT"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=764000007C5",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Washington Attorney General, Public Counsel Unit",
+      "kind": "ratepayer_advocate",
+      "website": "https://www.atg.wa.gov/",
+      "description": "Represents residential and small business utility customers before the Washington Utilities and Transportation Commission.",
+      "stated_position": null,
+      "states": [
+        "WA"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Washington Utilities and Transportation Commission",
+      "kind": "utility_commission",
+      "website": "https://www.utc.wa.gov/",
+      "description": "Washington's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "WA"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000807",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Citizens Utility Board of Wisconsin",
+      "kind": "ratepayer_advocate",
+      "website": "https://cubwi.org/",
+      "description": "Nonprofit that represents residential, farm and small business utility customers before the Public Service Commission of Wisconsin.",
+      "stated_position": null,
+      "states": [
+        "WI"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Service Commission of Wisconsin",
+      "kind": "utility_commission",
+      "website": "https://psc.wi.gov/",
+      "description": "Wisconsin's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "WI"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=F7A00000590",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "West Virginia Consumer Advocate Division",
+      "kind": "ratepayer_advocate",
+      "website": "http://www.cad.state.wv.us/",
+      "description": "Represents residential utility customers in cases before the Public Service Commission of West Virginia. It sits within the commission but works independently of its decision-making staff.",
+      "stated_position": null,
+      "states": [
+        "WV"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Public Service Commission of West Virginia",
+      "kind": "utility_commission",
+      "website": "https://www.psc.state.wv.us/",
+      "description": "West Virginia's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "WV"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=7640000081D",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Wyoming Office of Consumer Advocate",
+      "kind": "ratepayer_advocate",
+      "website": "https://oca.wyo.gov/",
+      "description": "State office that represents Wyoming utility customers before the Wyoming Public Service Commission.",
+      "stated_position": null,
+      "states": [
+        "WY"
+      ],
+      "county_fips": null,
+      "source_url": "https://www.nasuca.org/members/",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    },
+    {
+      "name": "Wyoming Public Service Commission",
+      "kind": "utility_commission",
+      "website": "https://psc.wyo.gov/",
+      "description": "Wyoming's utility regulator. It approves the rates investor-owned utilities charge, including how the cost of serving big new customers such as data centers is shared among everyone else. Its rate cases are open to public comment. City-owned utilities and electric cooperatives may set their own rates instead, so check which kind of company sends your bill.",
+      "stated_position": null,
+      "states": [
+        "WY"
+      ],
+      "county_fips": null,
+      "source_url": "https://maxxwww.naruc.org/forms/CompanyFormPublic/viewCommissionRoster?id=76400000833",
+      "checked_on": "2026-10-24",
+      "curated_by": "Claude: name and website from the NARUC/NASUCA directory, site checked live on 2026-10-24",
+      "verified": true
+    }
+  ]
+}

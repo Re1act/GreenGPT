@@ -1,5 +1,5 @@
 import type { Brief } from "@/lib/brief/types";
-import { COMMISSIONS, COMMISSION_DIRECTORY, OFFICIALS_DIRECTORY, ORGANIZATIONS, PROCEEDINGS } from "@/lib/brief/resources";
+import { COMMISSION_DIRECTORY, OFFICIALS_DIRECTORY, PROCEEDINGS } from "@/lib/brief/resources";
 
 type Citation = { title: string; url: string };
 function unique(items: Citation[]) {
@@ -8,10 +8,12 @@ function unique(items: Citation[]) {
 
 export default function BriefSources({ brief }: { brief: Brief | null }) {
   const state = brief?.place.state;
-  const commission = state ? COMMISSIONS[state] : undefined;
+  const orgs = brief?.organizations.items ?? [];
+  const commissions = orgs.filter(o => o.kind === "utility_commission");
   const groups: { title: string; description: string; links: Citation[] }[] = [
     { title: "ZIP codes & nearby facilities", description: "ZIP coordinates locate the search area. Individual facility records link to their underlying reporting and source dates.", links: [
-      { title: "Zippopotam.us / GeoNames — ZIP locations", url: "https://www.zippopotam.us/" },
+      { title: "U.S. Census Bureau — ZIP Code Tabulation Area gazetteer", url: "https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" },
+      { title: "Zippopotam.us / GeoNames — fallback ZIP locations", url: "https://www.zippopotam.us/" },
       ...unique((brief?.facilities.items ?? []).flatMap(f => f.source_url ? [{ title: `${f.source_name || "Facility record"} · ${f.name}`, url: f.source_url }] : [])),
     ] },
     { title: "State legislation", description: "Bill records provide sponsors, legislative actions, and source summaries. Check the legislature’s record for the latest status.", links: [
@@ -20,17 +22,19 @@ export default function BriefSources({ brief }: { brief: Brief | null }) {
     ] },
     { title: "Utility proceedings & deadlines", description: "Commission notices are the source for docket numbers, comment windows, and filing instructions. Coverage here is limited.", links: [
       { title: "NARUC — state utility commission directory", url: COMMISSION_DIRECTORY },
-      ...(commission ? [{ title: commission.name, url: commission.url }] : []),
+      ...commissions.map(c => ({ title: `${c.name} (checked ${c.checked})`, url: c.website })),
       ...PROCEEDINGS.filter(p => p.state === state).map(p => ({ title: `${p.id} — official notice (checked ${p.checked})`, url: p.source })),
     ] },
     { title: "Elected representatives", description: "Official directories and contact pages help confirm who represents you. House and state districts require an address check.", links: [
       { title: "U.S. Senate — senator directory", url: "https://www.senate.gov/senators/senators-contact.htm" },
+      { title: "Open States — find your state legislators", url: "https://openstates.org/find_your_legislator/" },
       { title: "U.S. House — find your representative", url: "https://www.house.gov/representatives/find-your-representative" },
       { title: "USA.gov — state and local elected officials", url: OFFICIALS_DIRECTORY },
       ...unique((brief?.officials.items ?? []).map(o => ({ title: `${o.name} — ${o.role}`, url: o.url }))),
     ] },
     { title: "Community organizations", description: "Organizations describe their own work and priorities. Directory links are starting points, not endorsements or confirmed local campaigns.", links: [
-      ...ORGANIZATIONS.filter(o => o.states.includes(state ?? "")).map(o => ({ title: `${o.name} (checked ${o.checked})`, url: o.source })),
+      ...unique(orgs.filter(o => o.kind !== "utility_commission").map(o => ({ title: `${o.name} (checked ${o.checked})`, url: o.website }))),
+      { title: "NASUCA — state utility consumer advocates", url: "https://www.nasuca.org/members/" },
       { title: "Sierra Club — local chapter directory", url: "https://www.sierraclub.org/chapters" },
     ] },
   ];
