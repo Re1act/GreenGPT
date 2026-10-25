@@ -201,7 +201,7 @@ export async function legislation(place: Place): Promise<Section<BriefBill>> {
       summaryKind:
         b.summary_source === "abstract"
           ? "Official abstract via Open States"
-          : "No official summary available, so this repeats the bill's title",
+          : "No official summary available; the linked bill has the full text",
       staleNote: staleBillNote(b.status, b.last_action_date),
       updated: b.last_action_date ?? b.updated_at,
       source: b.source_url,
