@@ -33,7 +33,7 @@ export async function GET(request: Request) {
     const response = await fetch(url, {
       // The public geocoder can take more than ten seconds for valid searches.
       signal: AbortSignal.timeout(30000),
-      headers: { "User-Agent": "SITED-Map/0.1 (postal-code lookup)" },
+      headers: { "User-Agent": "Kilowatch-Map/0.1 (postal-code lookup)" },
     });
     if (!response.ok) throw new Error("Location lookup unavailable");
     const data = await response.json();

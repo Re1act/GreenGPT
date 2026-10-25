@@ -30,7 +30,7 @@ export default function Home() {
           </Link>)}
         </div>
       </section>
-      <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 border-t border-[#d4e1db] px-5 py-6 text-xs leading-5 text-[#526968] sm:px-8"><span>GreenGPT</span><span>Estimates invite questions. Local context matters.</span></footer>
+      <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 border-t border-[#d4e1db] px-5 py-6 text-xs leading-5 text-[#526968] sm:px-8"><span>Kilowatch</span><span>Estimates invite questions. Local context matters.</span></footer>
     </main>
   );
 }

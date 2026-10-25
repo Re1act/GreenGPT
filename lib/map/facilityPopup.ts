@@ -17,7 +17,7 @@ function escapeHtml(value: unknown): string {
 
 function row(label: string, value: string | null | undefined) {
   if (!value) return "";
-  return `<div class="sited-popup-row"><span class="sited-popup-label">${escapeHtml(
+  return `<div class="kilowatch-popup-row"><span class="kilowatch-popup-label">${escapeHtml(
     label
   )}</span><span>${escapeHtml(value)}</span></div>`;
 }
@@ -60,18 +60,18 @@ export function buildFacilityPopupHtml(p: FacilityProperties, coords: [number, n
   });
 
   return `
-    <div class="sited-popup">
-      <h3 class="sited-popup-title">${escapeHtml(p.name)}</h3>
+    <div class="kilowatch-popup">
+      <h3 class="kilowatch-popup-title">${escapeHtml(p.name)}</h3>
       ${row("Operator", p.operator ?? "Undisclosed")}
       ${row("Status", statusLabel)}
       ${row("Announced load", p.announced_load_mw ? `${p.announced_load_mw} MW` : "Undisclosed")}
       ${row("Cooling", coolingLabel)}
       ${row("Build year", p.build_year ? String(p.build_year) : null)}
       ${row("State", p.state)}
-      ${p.applicable_local_policy ? `<p class="sited-popup-note">${escapeHtml(p.applicable_local_policy)}</p>` : ""}
-      ${p.opposition_note ? `<p class="sited-popup-note sited-popup-note--opposition">${escapeHtml(p.opposition_note)}</p>` : ""}
-      <a class="sited-popup-simulate" href="${escapeHtml(simulateHref)}">Model this site in the simulator →</a>
-      <div class="sited-popup-source">
+      ${p.applicable_local_policy ? `<p class="kilowatch-popup-note">${escapeHtml(p.applicable_local_policy)}</p>` : ""}
+      ${p.opposition_note ? `<p class="kilowatch-popup-note kilowatch-popup-note--opposition">${escapeHtml(p.opposition_note)}</p>` : ""}
+      <a class="kilowatch-popup-simulate" href="${escapeHtml(simulateHref)}">Model this site in the simulator →</a>
+      <div class="kilowatch-popup-source">
         Source: ${
           p.source_url
             ? `<a href="${escapeHtml(p.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
@@ -79,7 +79,7 @@ export function buildFacilityPopupHtml(p: FacilityProperties, coords: [number, n
               )}</a>`
             : escapeHtml(p.source_name)
         } (${escapeHtml(p.source_date)})
-        ${p.confidence ? `<div class="sited-popup-confidence">${escapeHtml(p.confidence)}</div>` : ""}
+        ${p.confidence ? `<div class="kilowatch-popup-confidence">${escapeHtml(p.confidence)}</div>` : ""}
       </div>
     </div>
   `;

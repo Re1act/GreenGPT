@@ -26,30 +26,30 @@ body {
   border-radius: 8px;
 }
 
-.sited-popup {
+.kilowatch-popup {
   font-family: inherit;
   font-size: 13px;
   color: #171717;
 }
 
-.sited-popup-title {
+.kilowatch-popup-title {
   margin: 0 0 6px;
   font-size: 14px;
   font-weight: 600;
 }
 
-.sited-popup-row {
+.kilowatch-popup-row {
   display: flex;
   justify-content: space-between;
   gap: 12px;
   padding: 1px 0;
 }
 
-.sited-popup-label {
+.kilowatch-popup-label {
   color: #71717a;
 }
 
-.sited-popup-note {
+.kilowatch-popup-note {
   margin: 8px 0 0;
   padding: 6px 8px;
   background: #f4f4f5;
@@ -58,12 +58,12 @@ body {
   line-height: 1.4;
 }
 
-.sited-popup-note--opposition {
+.kilowatch-popup-note--opposition {
   background: #fef2f2;
   color: #7f1d1d;
 }
 
-.sited-popup-simulate {
+.kilowatch-popup-simulate {
   display: block;
   margin-top: 8px;
   font-size: 12px;
@@ -71,11 +71,11 @@ body {
   color: #2a78d6;
 }
 
-.sited-popup-simulate:hover {
+.kilowatch-popup-simulate:hover {
   text-decoration: underline;
 }
 
-.sited-popup-source {
+.kilowatch-popup-source {
   margin-top: 8px;
   padding-top: 6px;
   border-top: 1px solid #e4e4e7;
@@ -83,12 +83,12 @@ body {
   color: #71717a;
 }
 
-.sited-popup-source a {
+.kilowatch-popup-source a {
   color: #2a78d6;
   text-decoration: underline;
 }
 
-.sited-popup-confidence {
+.kilowatch-popup-confidence {
   margin-top: 2px;
   font-style: italic;
 }

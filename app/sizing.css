@@ -12,12 +12,12 @@ html .maplibregl-ctrl-attrib { font-size: .6875rem; line-height: 1.25rem; }
 html .maplibregl-popup { max-width: min(18.75rem, calc(100vw - 2rem)) !important; }
 html .maplibregl-popup-content { padding: .75rem; border-radius: .5rem; }
 html .maplibregl-popup-close-button { font-size: 1.25rem; min-width: 1.5rem; min-height: 1.5rem; }
-.sited-popup { font-size: .8125rem; }
-.sited-popup-title { font-size: .875rem; padding-right: 1rem; }
-.sited-popup-row { gap: .75rem; padding: .0625rem 0; flex-wrap: wrap; }
-.sited-popup-note { margin: .5rem 0 0; padding: .375rem .5rem; font-size: .75rem; }
-.sited-popup-simulate { margin-top: .5rem; font-size: .75rem; }
-.sited-popup-source { margin-top: .5rem; padding-top: .375rem; font-size: .6875rem; overflow-wrap: anywhere; }
+.kilowatch-popup { font-size: .8125rem; }
+.kilowatch-popup-title { font-size: .875rem; padding-right: 1rem; }
+.kilowatch-popup-row { gap: .75rem; padding: .0625rem 0; flex-wrap: wrap; }
+.kilowatch-popup-note { margin: .5rem 0 0; padding: .375rem .5rem; font-size: .75rem; }
+.kilowatch-popup-simulate { margin-top: .5rem; font-size: .75rem; }
+.kilowatch-popup-source { margin-top: .5rem; padding-top: .375rem; font-size: .6875rem; overflow-wrap: anywhere; }
 @media (max-width: 639px) {
   .home-hero { padding-block: 2rem; }
 }

@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "GreenGPT — a civic tool for the data center buildout",
-    template: "%s — GreenGPT",
+    default: "Kilowatch — a civic tool for the data center buildout",
+    template: "%s — Kilowatch",
   },
   description:
     "Model why data center siting decisions have the consequences they do, see what's being built where, and find out what you can do about it.",

@@ -108,7 +108,7 @@ export async function nearby(place: Place, radius: number): Promise<Section<Brie
   return {
     available: true,
     note: rows.length
-      ? "From GreenGPT's facility registry: hand-checked records plus Data Center Watch's national list. No registry is complete, so check local news and planning agendas too."
+      ? "From Kilowatch's facility registry: hand-checked records plus Data Center Watch's national list. No registry is complete, so check local news and planning agendas too."
       : `No facilities in our registry within ${radius} miles. Our registry is incomplete, so this doesn't mean none are planned. Check your county's planning agendas.`,
     items: rows.map((f) => ({
       id: f.id,
@@ -221,7 +221,7 @@ export async function senators(state: string): Promise<Official[]> {
   if (!senateCache || senateCache.expires < Date.now()) {
     const res = await fetch("https://www.senate.gov/general/contact_information/senators_cfm.xml", {
       signal: AbortSignal.timeout(10_000),
-      headers: { "User-Agent": "GreenGPT/0.1 (local brief)" },
+      headers: { "User-Agent": "Kilowatch/0.1 (local brief)" },
     });
     if (!res.ok) throw new Error(`senate.gov ${res.status}`);
     senateCache = { xml: await res.text(), expires: Date.now() + DAY };
