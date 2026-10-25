@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kilowatch — a civic tool for the data center buildout",
+    default: "Kilowatch",
     template: "%s — Kilowatch",
   },
   description:
